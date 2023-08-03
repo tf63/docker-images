@@ -1,0 +1,11 @@
+matplotlib
+jupyter
+ipykernel
+numpy
+pandas
+scipy
+pillow
+opencv-python
+tqdm
+flake8
+black

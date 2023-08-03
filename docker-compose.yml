@@ -1,0 +1,67 @@
+version: '3.3'
+
+services:
+  # python:
+  #   build:
+  #     context: .
+  #     dockerfile: docker/python/Dockerfile
+  #   container_name: 'python'
+  #   stdin_open: true
+  #   tty: true
+  #   volumes:
+  #     - ./:/app
+
+  # pytorch_111:
+  #   build:
+  #     context: .
+  #     dockerfile: docker/pytorch/Dockerfile.111
+  #   container_name: 'nvidia-docker_111'
+  #   stdin_open: true
+  #   tty: true
+  #   volumes:
+  #     - ./:/app
+
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - driver: nvidia
+  #             count: 1
+  #             capabilities: [gpu]
+  
+  # pytorch_171:
+  #   build:
+  #     context: .
+  #     dockerfile: docker/pytorch/Dockerfile.171
+  #   container_name: 'nvidia-docker_171'
+  #   stdin_open: true
+  #   tty: true
+  #   volumes:
+  #     - ./:/app
+
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - driver: nvidia
+  #             count: 1
+  #             capabilities: [gpu]
+  
+
+  pytorch_171_2:
+    build:
+      context: .
+      dockerfile: docker/pytorch/Dockerfile.171.2
+    container_name: 'nvidia-docker_171_2'
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./:/app
+
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
