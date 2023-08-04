@@ -1,6 +1,6 @@
 ### Docker ってなんぞやという話 ~ Docker, Docker Compose のチュートリアル ~ VSCode の Remote Development まで
 
-- ソースコード `https://github.com/tf63/docker_images`
+- ソースコード https://github.com/tf63/docker_images
 
 **なぜ Docker?**
 
@@ -9,6 +9,7 @@
 - 複数バージョンの環境を共存できる
 - 再利用性が高い
 - ホストの環境を汚さない
+- など
 
 **Docker は何をする?**
 
@@ -24,15 +25,14 @@
 
 ![](img/docker_container.png)
 
-**Docker コンテナはどのように再利用･配布される?**
+`Dockerfile`
 
-`Dockerfileを配布`
-
-- ソースコードなので Git 管理できる
+- ソースコード
+- Git 管理できる
 - 一度作ってしまえば再利用が容易
 - 環境の内容を後から確認できる
 
-`Dockerイメージを配布`
+`Dockerイメージ`
 
 - ソースコードではない
 - [Docker hub](https://hub.docker.com/) のようなレジストリで配布される
@@ -83,7 +83,7 @@
 
 - 環境変数の宣言，コンテナのポートの開放，エントリポイントの設定など色々できるが，今回はここまで
 
-**Docker build**
+**Dockerfile のビルド**
 
 - 実際には `docker compose` を使ってビルドするので覚えなくとも良い
 - `Dockerfile` をビルドして Docker イメージを作成する
@@ -95,19 +95,23 @@
 - 現在ローカルに ベースイメージ `python:3.9` は存在しないが，`docker build` をすると勝手に [Docker hub](https://hub.docker.com/) から探してきてくれる (`docker pull`してくれる)
 
 - 引数には `Dockerfile` へのパスではなくビルド時のコンテキストというものを渡している
+
   - `Dockerfile` 内で`COPY docker/python/requirements.txt /app`とかしている
+
   - `docker/python/requrements.txt`はコンテキストからみた相対パスのこと
+
   - つまり，現在は`.` (カレントディレクトリ) をコンテキストとしているので，カレントディレクトリにある`docker/python/requirements.txt`が参照される
+
 - `-f`オプションに `Dockerfile` へのパスを指定する
 - `-t`オプションにイメージ名を指定する (タグ `1.0` は無くても良い)
 
 **Docker イメージの確認**
 
-- 作成した Docker イメージ `python_demo` が確認できるはず
-
 ```
     docker image ls
 ```
+
+- 作成した Docker イメージ `python_demo` が確認できるはず
 
 ```
     REPOSITORY                        TAG             IMAGE ID       CREATED        SIZE
@@ -146,7 +150,7 @@
     (略)
 ```
 
-**Docker Compose**
+### Docker Compose
 
 - Docker を使っていると複数のコンテナを同時に立ち上げたいことがある
 - 例えば，`Django` アプリケーションコンテナ，`Postgres` データベースコンテナ，`Nginx` サーバーコンテナを同時に立ち上げて通信したいような場合
@@ -190,7 +194,7 @@
 - `docker compose` であれば，長い `docker build`, `docker run`コマンドをいちいち打つ必要がない
 - 単独のコンテナでも `docker compose` を使ったほうが楽
 
-**Remote Development**
+### Remote Development
 
 - VSCode の拡張機能`remote development` と `docker`を使うことで，コンテナの中に入って VSCode 上で作業ができる
 
