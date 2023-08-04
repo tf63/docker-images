@@ -1,18 +1,17 @@
 {
-    "name": "PyTorch",
+    "name": "Python",
     "dockerComposeFile": "../docker-compose.yml",
-    "service": "pytorch_171_2",
+    "service": "python",
     "workspaceFolder": "/app",
     "customizations": {
         "vscode": {
             "settings": {
-                "python.formatting.provider": "none",
                 "[python]": {
-                    "editor.defaultFormatter": "ms-python.black-formatter",
                     "editor.formatOnPaste": false,
                     "editor.formatOnSave": true,
                     "editor.formatOnType": false
                 },
+                "python.formatting.provider": "ms-python.black-formatter",
                 "python.linting.enabled": true,
                 "python.linting.flake8Enabled": true,
                 "python.linting.flake8Args": ["--ignore=W293, W504, E111, E114, E402, E501"],
