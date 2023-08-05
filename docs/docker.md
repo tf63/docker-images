@@ -2,6 +2,20 @@
 
 - ソースコード https://github.com/tf63/docker_images
 
+- ディレクトリ構成
+
+```
+    .
+    ├── docker
+    │   └── python
+    │       ├── Dockerfile
+    │       └── requirements.txt
+    ├── docker-compose.yml
+    └── src
+        └── python
+            └── demo.py
+```
+
 **なぜ Docker?**
 
 - 環境を容易に共有できる
@@ -60,8 +74,11 @@
     black
 ```
 
+- 何をやっているのか?
+
 `ベースイメージ`
 
+- `Dockerfile`から作成する Docker イメージのもと
 - `FROM python:3.9`としているが，これは [Docker hub](https://hub.docker.com/) に登録されているイメージを指す
 - イメージには名前 `python` とタグ `3.9` を指定することができる
 - 名前 `python` の部分は[ここ](https://hub.docker.com/_/python) に対応
@@ -102,8 +119,8 @@
 
   - つまり，現在は`.` (カレントディレクトリ) をコンテキストとしているので，カレントディレクトリにある`docker/python/requirements.txt`が参照される
 
-- `-f`オプションに `Dockerfile` へのパスを指定する
-- `-t`オプションにイメージ名を指定する (タグ `1.0` は無くても良い)
+- `-f`オプションで， `Dockerfile` へのパスを指定する
+- `-t`オプションで，イメージ名を指定する (タグ `1.0` は無くても良い)
 
 **Docker イメージの確認**
 
