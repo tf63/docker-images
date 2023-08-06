@@ -18,4 +18,4 @@
 
 **Ubuntu で nvidia-docker を使って PyTorch の環境を作りたい**
 
-- `docs/pytorch.md`
+- `docs/docker_nvidia.md`

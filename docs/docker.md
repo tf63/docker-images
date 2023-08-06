@@ -1,10 +1,12 @@
-### Docker ってなんぞやという話 ~ Docker, Docker Compose のチュートリアル ~ VSCode の Remote Development まで
+## Docker ってなんぞやという話 ~ Docker, Docker Compose のチュートリアル ~ VSCode の Remote Development まで
 
-- ソースコード https://github.com/tf63/docker_images
+ソースコード
 
-- ディレクトリ構成
+- https://github.com/tf63/docker_images/tree/python
 
-```
+ディレクトリ構成
+
+```bash
     .
     ├── docker
     │   └── python
@@ -16,7 +18,7 @@
             └── demo.py
 ```
 
-**話の流れ**
+### 話の流れ
 
 - なぜ Docker を使いたい?
 - Docker はどんなもの?
@@ -26,9 +28,9 @@
 - Docker Compose のチュートリアル
 - VSCode の Remote Development を使う
 
-### Docker ってなんぞや?
+## Docker ってなんぞや?
 
-**なぜ Docker を使いたい?**
+### なぜ Docker を使いたい?
 
 - 環境を容易に共有できる
 - 環境を容易に作り直せる
@@ -39,49 +41,56 @@
 
 など
 
-**Docker はどんなもの?**
+### Docker はどんなもの?
 
-- `Docker Engine` が OS (ホスト) の上にコンテナ (小さい OS みたいなもの) を作成する
-- コンテナ内でプログラムを実行する () -> ホスト OS の環境に影響が及ばない
+`Docker Engine` が OS (ホスト) の上にコンテナ (小さい OS みたいなもの) を作成する
+
+コンテナ内でプログラムを実行する -> ホスト OS の環境に影響が及ばない
 
 ![](img/docker_virtual.png)
 
-**Docker コンテナが作成される仕組み**
+### Docker コンテナが作成される仕組み
 
 - `Dockerfile` から Docker イメージを作成
 - Docker イメージから Docker コンテナを作成
 
 ![](img/docker_container.png)
 
-- `Dockerfile` はソースコードであり Git 管理できる
+`Dockerfile` はソースコードであり Git 管理できる
 
-  - 再利用性が高く，配布も楽
+- 再利用性が高く，配布も楽
 
-  - 環境の内容を後から確認できる
+- 環境の内容を後から確認できる
 
-- Docker イメージは [Docker hub](https://hub.docker.com/) のようなレジストリで配布される
+Docker イメージは [Docker hub](https://hub.docker.com/) のようなレジストリで配布される
 
-  - `Dockerfile` を作る際のベースイメージにして利用したりする
+- `Dockerfile` を作る際のベースイメージにして利用したりする
 
-**Docker コンテナからホスト OS のファイルを参照するには?**
+### Docker コンテナからホスト OS のファイルを参照するには?
 
-- 基本的に次の 3 つのアプローチがある
+基本的に次の 3 つのアプローチがある
 
-  - bind マウント
-    - ホスト OS のディレクトリをコンテナにマウントする
-    - ホスト側でもファイルを参照したい場合に使う．ホストとコンテナ内でファイルの変更は同期されている
-  - volume マウント
-    - `Docker Engine` が 暗黙的に volume という領域を作成し，コンテナにマウントする
-    - DB のデータなど，ホスト側で参照する必要のないファイルをマウントする事が多い
-  - `Dockerfile`でホストのディレクトリをコンテナ内にコピーする
-    - 詳しくないがコンテナごとデプロイする場合とかに使う?
+**bind マウント**
 
-- 今回は bind マウントをする
+- ホスト OS のディレクトリをコンテナにマウントする
+- ホスト側でもファイルを参照したい場合に使う．ホストとコンテナ内でファイルの変更は同期されている
 
-### Docker を使ってみる
+**volume マウント**
 
-- Docker を使って`python3.9`の環境を作ってみます
-- `requirements.txt`から`pip`で以下のパッケージをインストールしてみます
+- `Docker Engine` が 暗黙的に volume という領域を作成し，コンテナにマウントする
+- DB のデータなど，ホスト側で参照する必要のないファイルをマウントする事が多い
+
+**`Dockerfile`でホストのディレクトリをコンテナ内にコピーする**
+
+- 詳しくないがコンテナごとデプロイする場合とかに使う?
+
+今回は **bind マウント**をする
+
+## Docker を使ってみる
+
+Docker を使って`python3.9`の環境を作ってみる
+
+`requirements.txt`から`pip`で以下のパッケージをインストールしてみる
 
 ```requirements.txt
     # requirements.txt
@@ -102,11 +111,10 @@
         pip install --no-cache-dir -r requirements.txt # コピーしたrequirements.txtからインストール
 ```
 
-- 何をやっているのか?
+**ベースイメージ**
 
-`ベースイメージ`
+`Dockerfile` からビルドする Docker イメージの元
 
-- `Dockerfile` からビルドする Docker イメージの元
 - `FROM python:3.9`としているが，これは [Docker hub](https://hub.docker.com/) に登録されているイメージを指す
 
   - イメージには名前 `python` とタグ `3.9` を指定することができる
@@ -115,27 +123,29 @@
 
   - タグ `3.9` の部分は[ここ](https://hub.docker.com/_/python/tags) に対応
 
-- 基本的にフレームワークやプログラミング言語は公式がイメージを配布しているため，それをベースイメージとして `Dockerfile` を作ることになる
-- `Alpine` や `Ubuntu` の公式イメージから `Dockerfile` を構築することもできる
+基本的にフレームワークやプログラミング言語は公式がイメージを配布しているため，それをベースイメージとして `Dockerfile` を作ることになる
 
-`ファイルのコピー`
+`Alpine` や `Ubuntu` の公式イメージから `Dockerfile` を構築することもできる
 
-- `COPY` 句でホスト側のファイルをコンテナ内にコピーできる
+**ファイルのコピー**
 
-`コマンドの実行`
+`COPY` 句でホスト側のファイルをコンテナ内にコピーできる
 
-- `RUN` 句でコマンドを実行できる
+**コマンドの実行**
 
-`他`
+`RUN` 句でコマンドを実行できる
 
-- 環境変数の宣言，コンテナのポートの開放，エントリポイントの設定など，色々できるが今回はここまで
+**他**
 
-**Dockerfile のビルド**
+環境変数の宣言，コンテナのポートの開放，エントリポイントの設定など，色々できるが今回はここまで
 
-- (実際には `docker compose` を使ってビルドしたほうが楽なので覚えなくとも良い)
-- `Dockerfile` をビルドして Docker イメージを作成する
+### Dockerfile のビルド
 
-```
+(実際には `docker compose` を使ってビルドしたほうが楽なので覚えなくとも良い)
+
+`Dockerfile` をビルドして Docker イメージを作成する
+
+```bash
     docker build . -f docker/python/Dockerfile -t python_demo:1.0
 ```
 
@@ -152,13 +162,13 @@
 - `-f`オプションで， `Dockerfile` へのパスを指定する
 - `-t`オプションで，イメージ名を指定する (タグ `1.0` は無くても良い)
 
-**Docker イメージの確認**
+### Docker イメージの確認
 
-```
+```bash
     docker image ls
 ```
 
-- 作成した Docker イメージ `python_demo` が確認できるはず
+作成した Docker イメージ `python_demo` が確認できるはず
 
 ```
     REPOSITORY                        TAG             IMAGE ID       CREATED        SIZE
@@ -166,11 +176,11 @@
     python_demo                       1.0             028d76d80330   2 hours ago    1.02GB
 ```
 
-**Docker コンテナの起動**
+### Docker コンテナの起動
 
-- 作成した Docker イメージ `python_demo:1.0` から Docker コンテナを起動してみる
+作成した Docker イメージ `python_demo:1.0` から Docker コンテナを起動してみる
 
-```
+```bash
     docker run -dit --name python_demo_container --volume "PWD":/app python_demo:1.0
 ```
 
@@ -178,16 +188,17 @@
 - `--volume` オプションで，カレントディレクトリを`/app`に bind マウント
 - `-dit` オプションはひとまず無視
 
-**コンテナ内でコマンドを実行**
+### コンテナ内でコマンドを実行
 
-- `docker exec` でコンテナ内でコマンドを実行できる
-- `python_demo_container` コンテナで `pip list` を実行してみる
+`docker exec` でコンテナ内でコマンドを実行できる
 
-```
+`python_demo_container` コンテナで `pip list` を実行してみる
+
+```bash
     docker exec python_demo_container pip list
 ```
 
-- `requirements.txt` に書いておいた `black` と `flake8` がインストールされている
+`requirements.txt` に書いておいた `black` と `flake8` がインストールされている
 
 ```
         Package           Version
@@ -198,9 +209,9 @@
     (略)
 ```
 
-### Docker Compose を使ってみる
+## Docker Compose を使ってみる
 
-**なぜ Docker Compose を使いたい?**
+### なぜ Docker Compose を使いたい?
 
 - `docker build` や `docker run` コマンドが長い
 
@@ -210,7 +221,9 @@
 
   - 例えば，`Django` アプリケーションコンテナ，`Postgres` データベースコンテナ，`Nginx` サーバーコンテナを同時に立ち上げて通信するような場合
 
-- `docker compose` は `docker-compose.yml` ファイルでコンテナの構成を宣言し，`docker compose up` でコンテナを起動できる
+### Docker Compose を使う
+
+`docker compose` は `docker-compose.yml` ファイルでコンテナの構成を宣言し，`docker compose up` でコンテナを起動できる
 
 **docker-compose.yml の例**
 
@@ -244,45 +257,46 @@
 
 ```
 
-- コンテナの起動
+コンテナの起動
 
-```
+```bash
     # -d はバックグラウンドでコンテナを起動するという意味
     docker compose up -d
 ```
 
-### Remote Development を使ってみる
+## Remote Development を使ってみる
 
-- VSCode の拡張機能 `Remote Development` と `Docker` を使うことで，コンテナの中に入って VSCode 上で作業ができる (VSCode にアタッチできる)
+VSCode の拡張機能 `Remote Development` と `Docker` を使うことで，コンテナの中に入って VSCode 上で作業ができる (VSCode にアタッチできる)
 
   <img src="img/vscode_remote.png" width=70%>
   <img src="img/vscode_docker.png" width=70%>
 
-- `Remote Development` では VSCode のワークディレクトリに `.devcontainer/devcontainer.json` を作成することでコンテナを VSCode にアタッチする
+`Remote Development` では VSCode のワークディレクトリに `.devcontainer/devcontainer.json` を作成することでコンテナを VSCode にアタッチする
 
 **devcontainer.json の例**
 
-- Docker サービス名，`docker-compose.yml`へのパスなどを指定
+Docker サービス名，`docker-compose.yml`へのパスなどを指定する
 
-```
-    "name": "Python",
-    "dockerComposeFile": "../docker-compose.yml",
-    "service": "python",
-    "workspaceFolder": "/app",
+```devcontainer.json
+    {
+        "name": "Python",
+        "dockerComposeFile": "../docker-compose.yml",
+        "service": "python",
+        "workspaceFolder": "/app"
+    }
 ```
 
 **VSCode へのアタッチ**
 
-- `ctrl + shift + P`とかでコマンドパレットを開いて，`Dev Containers: Open Folder in Container...`を実行
+`ctrl + shift + P`とかでコマンドパレットを開いて，`Dev Containers: Open Folder in Container...`を実行
 
   <img src="img/vscode_attach.png" width=70%>
 
-- アタッチ後は次のようになる
-- ターミナルを開くとコンテナの中に入っていることが確認できる
+ターミナルを開くとコンテナの中に入っていることが確認できる
 
   <img src="img/vscode_attach_python.png" width=70%>
 
-- コンテナから抜ける場合は左下の`Dev Container: Python`をクリックして，`Close Remote Connection`を実行
+コンテナから抜ける場合は左下の`Dev Container: Python`をクリックして，`Close Remote Connection`を実行
 
   <img src="img/vscode_close.png">
 

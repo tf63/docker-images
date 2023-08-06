@@ -7,7 +7,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 WORKDIR /app
 
 RUN apt update && \
-    apt install -y wget \
+    apt install -y \
+    wget \
     bzip2 \
     build-essential \
     git \
@@ -17,9 +18,7 @@ RUN apt update && \
     libsndfile1-dev \
     libgl1 \
     python3.8 \
-    python3-pip \
-    python3.8-venv && \
-    rm -rf /var/lib/apt/lists
+    python3-pip
 
 COPY docker/pytorch/requirements.txt /app
 
