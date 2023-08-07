@@ -1,0 +1,49 @@
+{
+  "contest": {
+    "id": "abc001",
+    "title": "AtCoder Beginner Contest 001",
+    "url": "https://atcoder.jp/contests/abc001"
+  },
+  "tasks": [
+    {
+      "id": "abc001_1",
+      "label": "A",
+      "title": "積雪深差",
+      "url": "https://atcoder.jp/contests/abc001/tasks/abc001_1",
+      "directory": {
+        "path": "a",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "abc001_2",
+      "label": "B",
+      "title": "視程の通報",
+      "url": "https://atcoder.jp/contests/abc001/tasks/abc001_2",
+      "directory": {
+        "path": "b",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "abc001_3",
+      "label": "C",
+      "title": "風力観測",
+      "url": "https://atcoder.jp/contests/abc001/tasks/abc001_3",
+      "directory": {
+        "path": "c",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "abc001_4",
+      "label": "D",
+      "title": "感雨時刻の整理",
+      "url": "https://atcoder.jp/contests/abc001/tasks/abc001_4",
+      "directory": {
+        "path": "d",
+        "testdir": "tests"
+      }
+    }
+  ]
+}

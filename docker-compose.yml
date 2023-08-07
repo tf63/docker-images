@@ -1,15 +1,15 @@
 version: '3.3'
 
 services:
-  python:
-    build:
-      context: .
-      dockerfile: docker/python/Dockerfile
-    container_name: 'python'
-    stdin_open: true
-    tty: true
-    volumes:
-      - ./:/app
+  # python:
+  #   build:
+  #     context: .
+  #     dockerfile: docker/python/Dockerfile
+  #   container_name: 'python'
+  #   stdin_open: true
+  #   tty: true
+  #   volumes:
+  #     - ./:/app
 
   # pytorch_111:
   #   build:
@@ -65,3 +65,14 @@ services:
   #           - driver: nvidia
   #             count: 1
   #             capabilities: [gpu]
+
+  atcoder:
+    build:
+      context: .
+      dockerfile: docker/atcoder/Dockerfile
+    container_name: atcoder
+    stdin_open: true
+    tty: true
+    working_dir: '/app'
+    volumes:
+      - ./:/app

@@ -1,0 +1,9 @@
+# デフォルト設定
+BasedOnStyle: Chromium
+# インデント幅
+IndentWidth: 4
+# 言語
+Language: Cpp
+Standard: Auto
+# 1行あたりの
+ColumnLimit: 120

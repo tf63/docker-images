@@ -1,0 +1,134 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "abc_dl",
+            "type": "shell",
+            "command": "${workspaceFolder}/cmd/abc_dl.sh ${input:abc_dl}",
+            "presentation": {
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+            },
+        },
+        {
+            "label": "arc_dl",
+            "type": "shell",
+            "command": "${workspaceFolder}/cmd/arc_dl.sh ${input:arc_dl}",
+            "presentation": {
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+            },
+        },
+        {
+            "label": "other_dl",
+            "type": "shell",
+            "command": "${workspaceFolder}/cmd/other_dl.sh ${input:other_dl}",
+            "presentation": {
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+            },
+        },
+        {
+            "label": "test",
+            "type": "shell",
+            "command": "oj t -d ${fileDirname}/tests/ -c ${fileDirname}/${fileBasenameNoExtension}.out -N",
+            "dependsOn": [
+                "compile"
+            ],
+            "presentation": {
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+            },
+        },
+        {
+            "label": "submit",
+            "type": "shell",
+            "command": "cd ${fileDirname} && acc submit ${file}",
+            "presentation": {
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+            }
+        },
+        {
+            "label": "execute",
+            "type": "shell",
+            "command": "${fileDirname}/${fileBasenameNoExtension}.out",
+            "presentation": {
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+            },
+            "dependsOn": [
+                "compile"
+            ],
+        },
+        {
+            "label": "execute with input.txt",
+            "type": "shell",
+            "command": "${fileDirname}/${fileBasenameNoExtension}.out < ${workspaceFolder}/templates/input.txt",
+            "presentation": {
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+            },
+            "dependsOn": [
+                "compile"
+            ],
+        },
+        {
+            "label": "compile",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-std=gnu++17",
+                "-Wall",
+                "-Wextra",
+                "-O2",
+                "-DONLINE_JUDGE",
+                "-I/opt/boost/gcc/include",
+                "-L/opt/boost/gcc/lib",
+                "-I/lib/ac-library",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}.out"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+            }
+        },
+        {
+            "label": "test_basic",
+            "type": "shell",
+            "command": "oj t -d ./tests/",
+        },
+    ],
+    "inputs": [
+        {
+            "id": "abc_dl",
+            "description": "ダウンロードするabcのコンテスト名を入力してください (例: abc123)",
+            "type": "promptString"
+        },
+        {
+            "id": "arc_dl",
+            "description": "ダウンロードするarcのコンテスト名を入力してください (例: arc123)",
+            "type": "promptString"
+        },
+        {
+            "id": "other_dl",
+            "description": "ダウンロードするコンテスト名を入力してください (例: practice)",
+            "type": "promptString"
+        }
+    ]
+}

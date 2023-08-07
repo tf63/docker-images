@@ -1,0 +1,81 @@
+{
+    "name": "AtCoder",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "atcoder",
+    "workspaceFolder": "/app",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "[python]": {
+                    "editor.formatOnPaste": false,
+                    "editor.formatOnSave": true,
+                    "editor.formatOnType": false
+                },
+                "python.formatting.provider": "ms-python.black-formatter",
+                "python.linting.enabled": true,
+                "python.linting.flake8Enabled": true,
+                "python.linting.flake8Args": ["--ignore=W293, W504, E111, E114, E402, E501"],
+                "python.linting.pylintEnabled": false,
+                "python.linting.pycodestyleEnabled": false,
+                "python.linting.lintOnSave": true,
+                
+                "files.associations": {
+                    "array": "cpp",
+                    "atomic": "cpp",
+                    "bit": "cpp",
+                    "*.tcc": "cpp",
+                    "cctype": "cpp",
+                    "clocale": "cpp",
+                    "cmath": "cpp",
+                    "cstdarg": "cpp",
+                    "cstddef": "cpp",
+                    "cstdint": "cpp",
+                    "cstdio": "cpp",
+                    "cstdlib": "cpp",
+                    "cwchar": "cpp",
+                    "cwctype": "cpp",
+                    "deque": "cpp",
+                    "unordered_map": "cpp",
+                    "vector": "cpp",
+                    "exception": "cpp",
+                    "algorithm": "cpp",
+                    "functional": "cpp",
+                    "iterator": "cpp",
+                    "memory": "cpp",
+                    "memory_resource": "cpp",
+                    "numeric": "cpp",
+                    "optional": "cpp",
+                    "random": "cpp",
+                    "string": "cpp",
+                    "string_view": "cpp",
+                    "system_error": "cpp",
+                    "tuple": "cpp",
+                    "type_traits": "cpp",
+                    "utility": "cpp",
+                    "fstream": "cpp",
+                    "initializer_list": "cpp",
+                    "iosfwd": "cpp",
+                    "iostream": "cpp",
+                    "istream": "cpp",
+                    "limits": "cpp",
+                    "new": "cpp",
+                    "ostream": "cpp",
+                    "sstream": "cpp",
+                    "stdexcept": "cpp",
+                    "streambuf": "cpp",
+                    "typeinfo": "cpp",
+                    "climits": "cpp",
+                    "queue": "cpp"
+                }
+            },
+            "extensions": [
+                "ms-python.python",
+                "ms-vscode.cpptools-extension-pack",
+                "sanaajani.taskrunnercode",
+                "ms-python.black-formatter",
+                "ms-python.flake8",
+                "esbenp.prettier-vscode"
+            ]
+        }
+    }
+}
