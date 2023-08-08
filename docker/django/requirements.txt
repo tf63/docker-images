@@ -1,0 +1,13 @@
+Django>=3.0,<4.0
+psycopg2>=2.8
+gunicorn>=19.9.0,<20.1.0
+Pillow
+tqdm
+flake8
+black
+numpy
+requests
+djangorestframework
+django-cors-headers
+# django-allauth
+# django-bootstrap5

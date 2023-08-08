@@ -5,6 +5,10 @@ data/
 tests/
 .out
 .in
+.env.prod
+venv
+
+db*
 
 # ---------------------------------------------
 # Python

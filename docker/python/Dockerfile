@@ -1,6 +1,7 @@
 # syntax=docker/dockerfile:1
 FROM python:3.9
 
+# コンテナのワークディレクトリを/appに指定
 WORKDIR /app
 
 # # ユーザー名を指定
