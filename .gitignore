@@ -7,7 +7,7 @@ tests/
 .in
 .env.prod
 venv
-
+node_modules/
 db*
 
 # ---------------------------------------------

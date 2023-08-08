@@ -234,9 +234,13 @@ GET してみる
 
 ### React プロジェクトの作成
 
+`vite` というビルドツールを使って TypeScript の React プロジェクトを作ります
+
 ```bash
     dce react yarn create vite . --template=react-ts
 ```
+
+React プロジェクトが作成できたら`vite.config.ts`を修正しておきます
 
 ```vite.config.ts
     import { defineConfig } from "vite";
@@ -250,3 +254,9 @@ GET してみる
         },
     });
 ```
+
+```bash
+    dce react npm i axios
+```
+
+![](img/react_get_post.png)
