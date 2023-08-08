@@ -82,7 +82,6 @@ services:
   #   container_name: atcoder
   #   stdin_open: true
   #   tty: true
-  #   working_dir: '/app'
   #   volumes:
   #     - ./:/app
 

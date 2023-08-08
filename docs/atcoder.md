@@ -2,9 +2,9 @@
 
 **やりたいこと**
 
-- AtCoder 用の`C++`を Docker で構築したい
+- AtCoder 用の`C++`の環境を Docker で構築したい
 - AtCoder の問題のテスト･提出を CLI でやりたい
-- コマンドを VSCode のタスクを使って自動化したい
+- 各種コマンドを VSCode のタスクを使って自動化したい
 
 **ソースコード**
 
@@ -51,11 +51,68 @@ https://github.com/online-judge-tools/oj
 
 **atcoder-cli (acc)**
 
-oj での問題のダウンロードと提出をうまいことやってくれる
+oj の問題のダウンロードと提出をうまいことやってくれる
 
 https://github.com/Tatamo/atcoder-cli/tree/develop
 
 ### 環境構築
+
+**Dockerfile**
+```Dockerfile
+    # syntax=docker/dockerfile:1
+    FROM node:19
+
+    # インタラクティブモードにならないようにする
+    ARG DEBIAN_FRONTEND=noninteractive
+
+    # タイムゾーンを日本に設定
+    ENV TZ=Asia/Tokyo
+
+    WORKDIR /app
+
+    # 起動シェルをshからbashに変更
+    SHELL ["/bin/bash", "-c"]
+
+    # パッケージなど
+    RUN apt update && \
+        apt install -y \
+        time \
+        tzdata \
+        tree \
+        git \
+        curl \
+        gcc-9 \
+        g++-9 \
+        gdb \
+        python3.9 \
+        python3-pip
+
+    # C++でAtCoder Library(ACL)を使えるようにする
+    RUN git clone https://github.com/atcoder/ac-library.git /lib/ac-library
+    ENV CPLUS_INCLUDE_PATH /lib/ac-library
+
+    # atcoder-cliのインストール
+    RUN npm install -g atcoder-cli@2.2.0
+
+    # ojのインストール
+    RUN pip install online-judge-tools==11.5.1
+```
+
+**docker-compose.yml**
+```
+    version: '3.3'
+
+    services:
+        atcoder:
+            build:
+                context: .
+                dockerfile: docker/atcoder/Dockerfile
+            container_name: atcoder
+            stdin_open: true
+            tty: true
+            volumes:
+                - ./:/app
+```
 
 **Docker コンテナの立ち上げ**
 
@@ -65,15 +122,21 @@ https://github.com/Tatamo/atcoder-cli/tree/develop
 
 **VSCode へのアタッチ**
 
+`.devcontainer/devcontainer.json`を作成
+```devcontainer.json
+    "name": "AtCoder",
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "atcoder",
+    "workspaceFolder": "/app",
+```
+
 `ctrl + shift + P`とかでコマンドパレットを開いて，`Dev Containers: Open Folder in Container...`を実行
 
   <img src="img/vscode_attach.png" width=70%>
 
-**VSCode の拡張機能 Task Runner**
+**タスクの登録**
 
-VSCode へのアタッチ時に拡張機能 `Task Runner` をインストールするように設定してある
-
-これを使うと `.vscode/tasks.json`に登録されたタスクを GUI で実行できる
+`.vscode/tasks.json`を作成する
 
 ```tasks.json
     {
@@ -91,6 +154,12 @@ VSCode へのアタッチ時に拡張機能 `Task Runner` をインストール�
             },
         (略)
 ```
+
+**VSCode の拡張機能 Task Runner**
+
+VSCode へのアタッチ時に拡張機能 `Task Runner` をインストールするように設定してある
+
+これを使うと `.vscode/tasks.json`に登録されたタスクを GUI で実行できる
 
   <img src="img/task_runner.png" width=40%>
 
@@ -124,7 +193,7 @@ vscode のタスク`abc_dl`, `arc_dl`を実行すると，abc, arc 問題のダ�
 - abc 問題のダウンロード -> `src/atcoder/abc/`にダウンロードされる
 - arc 問題のダウンロード -> `src/atcoder/arc/`にダウンロードされる
 
-![](img/task_dl.png)
+    <img src="img/task_dl.png" width=70%>
 
 結果
 
@@ -145,6 +214,7 @@ vscode のタスク`abc_dl`, `arc_dl`を実行すると，abc, arc 問題のダ�
 　　        　        │        ├── sample-3.in
 　　        　        │        └── sample-3.out
 　　　　　　　　      　└── b
+                    (略)
 ```
 
 ### テストの実行
@@ -197,7 +267,7 @@ AtCoder の提出ページに行けば提出が確認できる
 
 解答用の cpp ファイルは`./templates/atcoder.cpp`をコピーして作成される
 
-`./cmd/abc_dl.sh`, `./cmd/arc_dl.sh`でテンプレートファイルを選択している
+(`./cmd/abc_dl.sh`, `./cmd/arc_dl.sh`で`./templates/atcoder.cpp`をコピーしている)
 
 ```cmd/abc_dl.sh
     TEMPLATE="${WORKDIR}/templates/atcoder.cpp"
@@ -207,10 +277,13 @@ AtCoder の提出ページに行けば提出が確認できる
 
 **タスクをコマンドで実行する場合**
 
-```
-    ./cmd/abc_dl.sh abc123 # 問題のダウンロード
-    oj t -d 問題のtests/へのパス -c 実行ファイル へのパス # 解答のテスト
-    acc submit 提出するファイルへのパス # 解答の提出
+```bash
+    # 問題のダウンロード
+    ./cmd/abc_dl.sh abc123 
+    # 解答のテスト
+    oj t -d tests/へのパス -c 実行ファイルへのパス
+    # 解答の提出
+    acc submit 提出するファイルへのパス
 ```
 
 ### 参考
