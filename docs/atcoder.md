@@ -13,7 +13,6 @@ https://github.com/tf63/docker_images/tree/atcoder
 **ディレクトリ構成**
 
 ```bash
-
     .
     ├── .devcontainer
     │   └── devcontainer.json
@@ -99,7 +98,7 @@ https://github.com/Tatamo/atcoder-cli/tree/develop
 ```
 
 **docker-compose.yml**
-```
+```docker-compose.yml
     version: '3.3'
 
     services:
@@ -116,7 +115,7 @@ https://github.com/Tatamo/atcoder-cli/tree/develop
 
 **Docker コンテナの立ち上げ**
 
-```
+```bash
     docker compose up -d
 ```
 
@@ -195,7 +194,7 @@ vscode のタスク`abc_dl`, `arc_dl`を実行すると，abc, arc 問題のダ�
 
     <img src="img/task_dl.png" width=70%>
 
-結果
+**結果**
 
 - `abc001/` -> A, B, C, ...問題のディレクトリ
 - `abc001/a/test/` -> A 問題のテストケースがダウンロードされる
