@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
-FROM python:3.9
-# FROM nvcr.io/nvidia/pytorch:22.10-py3
+# FROM python:3.9
+FROM nvcr.io/nvidia/pytorch:22.10-py3
 
 # setup (root) ------------------------------------------------------
 ENV PYTHONDONTWRITEBYTECODE 1 # .pycを作らないように
