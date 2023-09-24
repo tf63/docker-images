@@ -13,7 +13,7 @@ WORKDIR /app
 RUN apt update && apt install -y \
     libgl1-mesa-dev # opencvで使う
 
-# user setting ------------------------------------------------------
+# create user -------------------------------------------------------
 
 # UIDとGIDは外から与える
 ARG USER_UID

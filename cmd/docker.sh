@@ -1,4 +1,11 @@
 #!/bin/bash
+
+# usage ------------------------------------------------------------------------
+# bash docker.sh build  # build image
+# bash docker.sh shell  # run container as user
+# bash docker.sh root  # run contaiener as root
+# ------------------------------------------------------------------------------
+
 DATASET_DIRS="$HOME/dataset"
 DATA_DIRS="$HOME/data"
 
@@ -14,7 +21,7 @@ shell()
 
 root()
 {
-    docker run --rm --user 0:0 --shm-size=16g -it -v $(pwd):/app -v $DATASET_DIRS:/dataset -v $DATA_DIRS:/data pytorch /bin/bash
+    docker run --rm --gpus all --user 0:0 --shm-size=16g -it -v $(pwd):/app -v $DATASET_DIRS:/dataset -v $DATA_DIRS:/data pytorch /bin/bash
 }
 
 

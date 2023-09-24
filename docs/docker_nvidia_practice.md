@@ -4,6 +4,19 @@
 nvidia-dockerの導入
 - https://qiita.com/tf63/items/618f192a810c28e4d2b7
 
+ディレクトリ構成
+```bash
+.
+├── .vscode
+│   ├── extensions.json
+│   └── settings.json
+├── docker.sh
+└── docker
+    └── nvc
+        ├── Dockerfile
+        └── requirements.txt
+```
+
 ### Dockerfile
 
 ```Dockerfile
@@ -21,7 +34,7 @@ WORKDIR /app
 RUN apt update && apt install -y \
     libgl1-mesa-dev # opencvで使う
 
-# user setting ------------------------------------------------------
+# create user -------------------------------------------------------
 
 # UIDとGIDは外から与える
 ARG USER_UID
@@ -43,7 +56,6 @@ RUN useradd -m -u $USER_UID -g $USER_GID -s /bin/bash $USER_NAME
 USER $USER_NAME
 
 # setup (user) ------------------------------------------------------
-
 COPY docker/nvc/requirements.txt .
 RUN pip install -r requirements.txt
 ```
@@ -60,9 +72,9 @@ RUN pip install -r requirements.txt
 
 - コンテナ内でユーザーを作成しています
 
-    - rootでpipを使いたくない
+    - rootでpipを実行したくない
 
-    - 
+    - コンテナをVSCodeにアタッチする際にパーミッション周りの問題がある
 
 
 - エントリポイントは`nvidia ngc`のイメージだと`/bin/bash`になっていますが，`nvidia/cuda`のイメージにはエントリポイントが指定されていません
@@ -75,10 +87,18 @@ RUN pip install -r requirements.txt
 
 ### Dockerコマンド
 - コンテナ操作はシェルスクリプトにまとめたほうが楽です
+
 - docker composeは起動が無駄に遅い + GPUサーバーにインストールされていない場合があるので使いません
 
 ```docker.sh
 #!/bin/bash
+
+# usage ----------------------------------------------
+# bash docker.sh build  # build image
+# bash docker.sh shell  # run container as user
+# bash docker.sh root  # run contaiener as root
+# ----------------------------------------------------
+
 DATASET_DIRS="$HOME/dataset"
 DATA_DIRS="$HOME/data"
 
@@ -89,13 +109,14 @@ build()
 
 shell() 
 {
-    docker run --rm --user $(id -u):$(id -g) --shm-size=16g -it -v $(pwd):/app -v $DATASET_DIRS:/dataset -v $DATA_DIRS:/data pytorch /bin/bash
+    docker run --rm --gpus all --shm-size=16g -it -v $(pwd):/app -v $DATASET_DIRS:/dataset -v $DATA_DIRS:/data pytorch /bin/bash
 }
 
 root()
 {
-    docker run --gpus all --rm --user 0:0 --shm-size=16g -it -v $(pwd):/app -v $DATASET_DIRS:/dataset -v $DATA_DIRS:/data pytorch /bin/bash
+    docker run --rm --gpus all --user 0:0 --shm-size=16g -it -v $(pwd):/app -v $DATASET_DIRS:/dataset -v $DATA_DIRS:/data pytorch /bin/bash
 }
+
 
 if [[ $1 == "build" ]]; then
     build
@@ -106,20 +127,37 @@ elif [[ $1 == "root" ]]; then
 else
     echo "error: invalid argument"
 fi
-
 ```
+
 
 - `data/`, `dataset/`はクソデカなので，ワークスペース共通で使い回せるようにしたほうが良い
 
     - 別途マウントするほうが良さそうですね
 
-### オプション
+- テスト用にrootでもログインできるようにしてあります
+
+
+### Formatter, Linter
 - Formatter, Linterは諸説ありますが，MLだと`autopep8 + flake8`で良いと思います
 
-    - ML系のコードは一つのファイルがデカくなりがちなので，`black`を使うと管理しにくいです
+    - ML系のコードは一つのファイルがデカくなりがちなので，`black`を使うとコードが大変読みにくいです
 
-- vscodeだと`autopep8`と`flake8`の公式の拡張機能があります
-- これを使うと，pipでインストールせずにFormatter, Linterを動かせます
+- VSCodeeだと`autopep8`と`flake8`の公式の拡張機能があります
+- これを使うと，pipでパッケージをインストールせずに`autopep8`, `flake8`を動かせます
+
+extensions.json
+```extensions.json
+{
+    "recommendations": [
+        "ms-python.python",
+        "ms-python.autopep8",
+        "ms-python.flake8",
+        "esbenp.prettier-vscode"
+    ]
+}
+```
+
+settings.json
 ```settings.json
 {
     "[python]": {
@@ -133,9 +171,37 @@ fi
         "--max-line-length",
         "160",
         "--ignore=E111, E114, E402, E501"
-    ]
+    ],
+    "flake8.args": [
+        "--ignore=W293, W504, E111, E114, E402, E501"
+    ],
+    "python.linting.flake8Enabled": true,
+    "python.linting.enabled": true
 }
 ```
+
+
+### 想定している使い方
+- ホスト側のVSCodeに拡張機能`Remote Development`と`Docker`をインストールしておきましょう
+
+![Alt text](img/docker_nvidia_practice.png)
+![Alt text](img/docker_nvidia_practice-1.png)
+
+- コンテナのビルド･起動はターミナルから行います
+- `.devcontainer`は使用しません
+
+```bash
+    bash docker.sh build
+    bash docker.sh shell
+```
+
+- コンテナが立ち上がったら`Docker`拡張機能を使ってコンテナをVSCodeにアタッチします
+
+![Alt text](img/docker_nvidia_practice-2.png)
+
+- ターミナルを開くとコンテナ内に入っていることが確認できます
+
+![Alt text](img/docker_nvidia_practice-3.png)
 
 ### 参考
 
