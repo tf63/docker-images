@@ -4,15 +4,16 @@ services:
   # ----------------------------------------------------------------
   # Python
   # ----------------------------------------------------------------
-  # python:
-  #   build:
-  #     context: .
-  #     dockerfile: docker/python/Dockerfile
-  #   container_name: 'python'
-  #   stdin_open: true
-  #   tty: true
-  #   volumes:
-  #     - ./:/app
+  python:
+    build:
+      context: .
+      dockerfile: docker/python/Dockerfile
+    container_name: 'python'
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./:/app
+
 
   # ----------------------------------------------------------------
   # PyTorch
@@ -88,51 +89,51 @@ services:
   # ----------------------------------------------------------------
   # Django + React + Postgres
   # ----------------------------------------------------------------
-  django:
-    build:
-      context: .
-      dockerfile: docker/django/Dockerfile
-    tty: true
-    volumes:
-      - ./src/django/backend:/app
-    ports:
-      - 8000:8000
-    depends_on:
-      - postgres
-    env_file:
-      - .env.dev
-    entrypoint: /usr/local/bin/entrypoint.sh
+  # django:
+  #   build:
+  #     context: .
+  #     dockerfile: docker/django/Dockerfile
+  #   tty: true
+  #   volumes:
+  #     - ./src/django/backend:/app
+  #   ports:
+  #     - 8000:8000
+  #   depends_on:
+  #     - postgres
+  #   env_file:
+  #     - .env.dev
+  #   entrypoint: /usr/local/bin/entrypoint.sh
 
-  postgres:
-    image: postgres:15.2
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    ports:
-      - 5432:5432
-    env_file:
-      - .env.dev
+  # postgres:
+  #   image: postgres:15.2
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   ports:
+  #     - 5432:5432
+  #   env_file:
+  #     - .env.dev
 
-  pgadmin4:
-    image: dpage/pgadmin4
-    ports:
-      - 8888:80
-    volumes:
-      - pgadmin4_data:/var/lib/pgadmin
-    depends_on:
-      - postgres
-    env_file:
-      - .env.dev
+  # pgadmin4:
+  #   image: dpage/pgadmin4
+  #   ports:
+  #     - 8888:80
+  #   volumes:
+  #     - pgadmin4_data:/var/lib/pgadmin
+  #   depends_on:
+  #     - postgres
+  #   env_file:
+  #     - .env.dev
     
-  react:
-    build:
-      context: .
-      dockerfile: docker/react/Dockerfile
-    tty: true
-    volumes:
-      - ./src/django/frontend:/app
-    ports:
-      - 5173:5173
-    command: sh -c "npm install && npm run dev"
+  # react:
+  #   build:
+  #     context: .
+  #     dockerfile: docker/react/Dockerfile
+  #   tty: true
+  #   volumes:
+  #     - ./src/django/frontend:/app
+  #   ports:
+  #     - 5173:5173
+  #   command: sh -c "npm install && npm run dev"
 
 volumes:
   postgres_data:

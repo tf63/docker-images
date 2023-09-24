@@ -1,7 +1,7 @@
 {
-    "name": "Django",
+    "name": "PyTorch",
     "dockerComposeFile": "../docker-compose.yml",
-    "service": "django",
+    "service": "pytorch_171",
     "workspaceFolder": "/app",
     "customizations": {
         "vscode": {
