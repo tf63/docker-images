@@ -3,7 +3,7 @@
 # usage ------------------------------------------------------------------------
 # bash docker.sh build  # build image
 # bash docker.sh shell  # run container as user
-# bash docker.sh root  # run contaiener as root
+# bash docker.sh root  # run container as root
 # ------------------------------------------------------------------------------
 
 DATASET_DIRS="$HOME/dataset"

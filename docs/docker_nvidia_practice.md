@@ -2,6 +2,7 @@
 随時更新します
 
 nvidia-dockerの導入
+
 - https://qiita.com/tf63/items/618f192a810c28e4d2b7
 
 ディレクトリ構成
@@ -77,18 +78,9 @@ RUN pip install -r requirements.txt
     - コンテナをVSCodeにアタッチする際にパーミッション周りの問題がある
 
 
-- エントリポイントは`nvidia ngc`のイメージだと`/bin/bash`になっていますが，`nvidia/cuda`のイメージにはエントリポイントが指定されていません
-
-    - `/bin/bash`に統一したほうが良いですね
-
-- poetry, pipenvは複雑になるので使いません
-
-
 
 ### Dockerコマンド
-- コンテナ操作はシェルスクリプトにまとめたほうが楽です
-
-- docker composeは起動が無駄に遅い + GPUサーバーにインストールされていない場合があるので使いません
+コンテナ操作はシェルスクリプトにまとめたほうが楽です
 
 ```docker.sh
 #!/bin/bash
@@ -96,7 +88,7 @@ RUN pip install -r requirements.txt
 # usage ----------------------------------------------
 # bash docker.sh build  # build image
 # bash docker.sh shell  # run container as user
-# bash docker.sh root  # run contaiener as root
+# bash docker.sh root  # run container as root
 # ----------------------------------------------------
 
 DATASET_DIRS="$HOME/dataset"
@@ -129,21 +121,22 @@ else
 fi
 ```
 
-
 - `data/`, `dataset/`はクソデカなので，ワークスペース共通で使い回せるようにしたほうが良い
 
     - 別途マウントするほうが良さそうですね
 
+- コンテナ起動時に`/bin/bash`を実行するようにしています
+
 - テスト用にrootでもログインできるようにしてあります
 
-
 ### Formatter, Linter
-- Formatter, Linterは諸説ありますが，MLだと`autopep8 + flake8`で良いと思います
+- Formatter, Linterは諸説ありますが，MLでは`autopep8 + flake8`で良いと思います
 
-    - ML系のコードは一つのファイルがデカくなりがちなので，`black`を使うとコードが大変読みにくいです
+    - ML系のコードは一つのファイルがデカくなりがちなので，`black`を使うとコードが大変読みにくい
 
-- VSCodeeだと`autopep8`と`flake8`の公式の拡張機能があります
-- これを使うと，pipでパッケージをインストールせずに`autopep8`, `flake8`を動かせます
+- VSCodeだと`autopep8`と`flake8`の公式の拡張機能があります
+
+    - これを使うと，pipでパッケージをインストールせずに`autopep8`, `flake8`を動かせます
 
 extensions.json
 ```extensions.json
@@ -182,24 +175,29 @@ settings.json
 
 
 ### 想定している使い方
-- ホスト側のVSCodeに拡張機能`Remote Development`と`Docker`をインストールしておきましょう
+ホスト側のVSCodeに拡張機能`Docker`と`Remote Development` (いらないかも?)をインストールしておきましょう
 
 ![Alt text](img/docker_nvidia_practice.png)
 ![Alt text](img/docker_nvidia_practice-1.png)
 
-- コンテナのビルド･起動はターミナルから行います
-- `.devcontainer`は使用しません
+コンテナのビルド･起動はターミナルから行います
 
 ```bash
     bash docker.sh build
     bash docker.sh shell
 ```
 
-- コンテナが立ち上がったら`Docker`拡張機能を使ってコンテナをVSCodeにアタッチします
+コンテナが立ち上がったら`Docker`拡張機能を使ってコンテナをVSCodeにアタッチします
 
 ![Alt text](img/docker_nvidia_practice-2.png)
 
-- ターミナルを開くとコンテナ内に入っていることが確認できます
+ターミナルを開くとコンテナ内に入っていることが確認できます
+
+- VSCodeで`/app`ディレクトリを開けば，ワークスペースのディレクトリがマウントされています
+
+- 右下に拡張機能のインストール確認が出るので, インストールしましょう
+
+- 2回目以降は自動でやってくれるはずです
 
 ![Alt text](img/docker_nvidia_practice-3.png)
 
@@ -216,3 +214,27 @@ https://github.com/NVlabs/edm
 docker.sh
 
 https://github.com/RUB-SysSec/GANDCTAnalysis
+
+### 備考
+
+- poetry, pipenvは使用しません
+    
+    - 無駄に複雑になる + Dockerイメージが大きくなる
+
+- docker composeは使用しません
+    
+    - コンテナの起動が無駄に遅い + GPUサーバーにインストールされていない場合がある
+
+- `.devcontainer`は使用しません
+
+    - ジョブごとにコンテナを割り当てたいので，同じコンテナを複数立ち上げることを想定している
+
+    - コンテナの起動が`.devcontainer`に依存していると面倒
+
+    - (エディタの補完機能を使いたいので，結局アタッチはしている)
+
+
+### 課題
+- nodeみたいにコンテナをVSCodeにアタッチせずともエディタの補完機能を使えるようにしたい
+
+    - venvで環境を作成し，コンテナにマウントすればできるかもしれない
