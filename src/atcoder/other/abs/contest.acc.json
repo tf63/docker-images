@@ -1,0 +1,119 @@
+{
+  "contest": {
+    "id": "abs",
+    "title": "AtCoder Beginners Selection",
+    "url": "https://atcoder.jp/contests/abs"
+  },
+  "tasks": [
+    {
+      "id": "practice_1",
+      "label": "PracticeA",
+      "title": "Welcome to AtCoder",
+      "url": "https://atcoder.jp/contests/abs/tasks/practice_1",
+      "directory": {
+        "path": "practicea",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "abc086_a",
+      "label": "ABC086A",
+      "title": "Product",
+      "url": "https://atcoder.jp/contests/abs/tasks/abc086_a",
+      "directory": {
+        "path": "abc086a",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "abc081_a",
+      "label": "ABC081A",
+      "title": "Placing Marbles",
+      "url": "https://atcoder.jp/contests/abs/tasks/abc081_a",
+      "directory": {
+        "path": "abc081a",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "abc081_b",
+      "label": "ABC081B",
+      "title": "Shift only",
+      "url": "https://atcoder.jp/contests/abs/tasks/abc081_b",
+      "directory": {
+        "path": "abc081b",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "abc087_b",
+      "label": "ABC087B",
+      "title": "Coins",
+      "url": "https://atcoder.jp/contests/abs/tasks/abc087_b",
+      "directory": {
+        "path": "abc087b",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "abc083_b",
+      "label": "ABC083B",
+      "title": "Some Sums",
+      "url": "https://atcoder.jp/contests/abs/tasks/abc083_b",
+      "directory": {
+        "path": "abc083b",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "abc088_b",
+      "label": "ABC088B",
+      "title": "Card Game for Two",
+      "url": "https://atcoder.jp/contests/abs/tasks/abc088_b",
+      "directory": {
+        "path": "abc088b",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "abc085_b",
+      "label": "ABC085B",
+      "title": "Kagami Mochi",
+      "url": "https://atcoder.jp/contests/abs/tasks/abc085_b",
+      "directory": {
+        "path": "abc085b",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "abc085_c",
+      "label": "ABC085C",
+      "title": "Otoshidama",
+      "url": "https://atcoder.jp/contests/abs/tasks/abc085_c",
+      "directory": {
+        "path": "abc085c",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "arc065_a",
+      "label": "ABC049C",
+      "title": "Daydream",
+      "url": "https://atcoder.jp/contests/abs/tasks/arc065_a",
+      "directory": {
+        "path": "abc049c",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "arc089_a",
+      "label": "ABC086C",
+      "title": "Traveling",
+      "url": "https://atcoder.jp/contests/abs/tasks/arc089_a",
+      "directory": {
+        "path": "abc086c",
+        "testdir": "tests"
+      }
+    }
+  ]
+}
