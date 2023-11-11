@@ -46,6 +46,7 @@
     "typeinfo": "cpp",
     "climits": "cpp",
     "queue": "cpp",
-    "regex": "cpp"
+    "regex": "cpp",
+    "ratio": "cpp"
   }
 }
