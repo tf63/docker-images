@@ -1,0 +1,1519 @@
+{
+  "contest": {
+    "id": "tessoku-book",
+    "title": "競技プログラミングの鉄則　演習問題集",
+    "url": "https://atcoder.jp/contests/tessoku-book"
+  },
+  "tasks": [
+    {
+      "id": "tessoku_book_a",
+      "label": "A01",
+      "title": "The First Problem",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_a",
+      "directory": {
+        "path": "a01",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_b",
+      "label": "A02",
+      "title": "Linear Search",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_b",
+      "directory": {
+        "path": "a02",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_c",
+      "label": "A03",
+      "title": "Two Cards",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_c",
+      "directory": {
+        "path": "a03",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_d",
+      "label": "A04",
+      "title": "Binary Representation 1",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_d",
+      "directory": {
+        "path": "a04",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_e",
+      "label": "A05",
+      "title": "Three Cards",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_e",
+      "directory": {
+        "path": "a05",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "math_and_algorithm_ai",
+      "label": "A06",
+      "title": "How Many Guests?",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/math_and_algorithm_ai",
+      "directory": {
+        "path": "a06",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_g",
+      "label": "A07",
+      "title": "Event Attendance",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_g",
+      "directory": {
+        "path": "a07",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_h",
+      "label": "A08",
+      "title": "Two Dimensional Sum",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_h",
+      "directory": {
+        "path": "a08",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_i",
+      "label": "A09",
+      "title": "Winter in ALGO Kingdom",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_i",
+      "directory": {
+        "path": "a09",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_j",
+      "label": "A10",
+      "title": "Resort Hotel",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_j",
+      "directory": {
+        "path": "a10",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_k",
+      "label": "A11",
+      "title": "Binary Search 1",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_k",
+      "directory": {
+        "path": "a11",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_l",
+      "label": "A12",
+      "title": "Printer",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_l",
+      "directory": {
+        "path": "a12",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_m",
+      "label": "A13",
+      "title": "Close Pairs",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_m",
+      "directory": {
+        "path": "a13",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_n",
+      "label": "A14",
+      "title": "Four Boxes",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_n",
+      "directory": {
+        "path": "a14",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_o",
+      "label": "A15",
+      "title": "Compression",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_o",
+      "directory": {
+        "path": "a15",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_p",
+      "label": "A16",
+      "title": "Dungeon 1（※初版第 1 刷の B22 も同じ問題です）",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_p",
+      "directory": {
+        "path": "a16",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_q",
+      "label": "A17",
+      "title": "Dungeon 2",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_q",
+      "directory": {
+        "path": "a17",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_r",
+      "label": "A18",
+      "title": "Subset Sum",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_r",
+      "directory": {
+        "path": "a18",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_s",
+      "label": "A19",
+      "title": "Knapsack 1",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_s",
+      "directory": {
+        "path": "a19",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_t",
+      "label": "A20",
+      "title": "LCS",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_t",
+      "directory": {
+        "path": "a20",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_u",
+      "label": "A21",
+      "title": "Block Game",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_u",
+      "directory": {
+        "path": "a21",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_v",
+      "label": "A22",
+      "title": "Sugoroku",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_v",
+      "directory": {
+        "path": "a22",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_w",
+      "label": "A23",
+      "title": "All Free",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_w",
+      "directory": {
+        "path": "a23",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_x",
+      "label": "A24",
+      "title": "LIS",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_x",
+      "directory": {
+        "path": "a24",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_y",
+      "label": "A25",
+      "title": "Number of Routes",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_y",
+      "directory": {
+        "path": "a25",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_z",
+      "label": "A26",
+      "title": "Prime Check",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_z",
+      "directory": {
+        "path": "a26",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "math_and_algorithm_o",
+      "label": "A27",
+      "title": "Calculate GCD",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/math_and_algorithm_o",
+      "directory": {
+        "path": "a27",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_ab",
+      "label": "A28",
+      "title": "Blackboard",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ab",
+      "directory": {
+        "path": "a28",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "math_and_algorithm_aq",
+      "label": "A29",
+      "title": "Power",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/math_and_algorithm_aq",
+      "directory": {
+        "path": "a29",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_ad",
+      "label": "A30",
+      "title": "Combination",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ad",
+      "directory": {
+        "path": "a30",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_ae",
+      "label": "A31",
+      "title": "Divisors",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ae",
+      "directory": {
+        "path": "a31",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_af",
+      "label": "A32",
+      "title": "Game 1",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_af",
+      "directory": {
+        "path": "a32",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_ag",
+      "label": "A33",
+      "title": "Game 2",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ag",
+      "directory": {
+        "path": "a33",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_ah",
+      "label": "A34",
+      "title": "Game 3",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ah",
+      "directory": {
+        "path": "a34",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_ai",
+      "label": "A35",
+      "title": "Game 4",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ai",
+      "directory": {
+        "path": "a35",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_aj",
+      "label": "A36",
+      "title": "Travel",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_aj",
+      "directory": {
+        "path": "a36",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_ak",
+      "label": "A37",
+      "title": "Travel 2",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ak",
+      "directory": {
+        "path": "a37",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_al",
+      "label": "A38",
+      "title": "Black Company 1",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_al",
+      "directory": {
+        "path": "a38",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "math_and_algorithm_bn",
+      "label": "A39",
+      "title": "Interval Scheduling Problem",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/math_and_algorithm_bn",
+      "directory": {
+        "path": "a39",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_an",
+      "label": "A40",
+      "title": "Triangle",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_an",
+      "directory": {
+        "path": "a40",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_ao",
+      "label": "A41",
+      "title": "Tile Coloring",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ao",
+      "directory": {
+        "path": "a41",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_ap",
+      "label": "A42",
+      "title": "Soccer",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ap",
+      "directory": {
+        "path": "a42",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_aq",
+      "label": "A43",
+      "title": "Travel 3",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_aq",
+      "directory": {
+        "path": "a43",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_ar",
+      "label": "A44",
+      "title": "Change and Reverse",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ar",
+      "directory": {
+        "path": "a44",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_as",
+      "label": "A45",
+      "title": "Card Elimination",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_as",
+      "directory": {
+        "path": "a45",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_at",
+      "label": "A46",
+      "title": "Heuristic 1",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_at",
+      "directory": {
+        "path": "a46",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_aw",
+      "label": "A49",
+      "title": "Heuristic 2",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_aw",
+      "directory": {
+        "path": "a49",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "future_contest_2018_qual_a",
+      "label": "A50",
+      "title": "山型足し算",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/future_contest_2018_qual_a",
+      "directory": {
+        "path": "a50",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_ay",
+      "label": "A51",
+      "title": "Stack",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ay",
+      "directory": {
+        "path": "a51",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_az",
+      "label": "A52",
+      "title": "Queue",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_az",
+      "directory": {
+        "path": "a52",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_ba",
+      "label": "A53",
+      "title": "Priority Queue",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ba",
+      "directory": {
+        "path": "a53",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_bb",
+      "label": "A54",
+      "title": "Map",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_bb",
+      "directory": {
+        "path": "a54",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_bc",
+      "label": "A55",
+      "title": "Set",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_bc",
+      "directory": {
+        "path": "a55",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_bd",
+      "label": "A56",
+      "title": "String Hash",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_bd",
+      "directory": {
+        "path": "a56",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_be",
+      "label": "A57",
+      "title": "Doubling",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_be",
+      "directory": {
+        "path": "a57",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_bf",
+      "label": "A58",
+      "title": "RMQ (Range Maximum Queries)",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_bf",
+      "directory": {
+        "path": "a58",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_bg",
+      "label": "A59",
+      "title": "RSQ (Range Sum Queries)",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_bg",
+      "directory": {
+        "path": "a59",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_bh",
+      "label": "A60",
+      "title": "Stock Price",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_bh",
+      "directory": {
+        "path": "a60",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_bi",
+      "label": "A61",
+      "title": "Adjacent Vertices",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_bi",
+      "directory": {
+        "path": "a61",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "math_and_algorithm_am",
+      "label": "A62",
+      "title": "Depth First Search",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/math_and_algorithm_am",
+      "directory": {
+        "path": "a62",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "math_and_algorithm_an",
+      "label": "A63",
+      "title": "Shortest Path 1",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/math_and_algorithm_an",
+      "directory": {
+        "path": "a63",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_bl",
+      "label": "A64",
+      "title": "Shortest Path 2",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_bl",
+      "directory": {
+        "path": "a64",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_bm",
+      "label": "A65",
+      "title": "Road to Promotion",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_bm",
+      "directory": {
+        "path": "a65",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_bn",
+      "label": "A66",
+      "title": "Connect Query",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_bn",
+      "directory": {
+        "path": "a66",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_bo",
+      "label": "A67",
+      "title": "MST (Minimum Spanning Tree)",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_bo",
+      "directory": {
+        "path": "a67",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_bp",
+      "label": "A68",
+      "title": "Maximum Flow",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_bp",
+      "directory": {
+        "path": "a68",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_bq",
+      "label": "A69",
+      "title": "Bipartite Matching",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_bq",
+      "directory": {
+        "path": "a69",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_br",
+      "label": "A70",
+      "title": "Lanterns",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_br",
+      "directory": {
+        "path": "a70",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_bs",
+      "label": "A71",
+      "title": "Homework",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_bs",
+      "directory": {
+        "path": "a71",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_bt",
+      "label": "A72",
+      "title": "Tile Painting",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_bt",
+      "directory": {
+        "path": "a72",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_bu",
+      "label": "A73",
+      "title": "Marathon Route",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_bu",
+      "directory": {
+        "path": "a73",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_bv",
+      "label": "A74",
+      "title": "Board Game",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_bv",
+      "directory": {
+        "path": "a74",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_bw",
+      "label": "A75",
+      "title": "Examination",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_bw",
+      "directory": {
+        "path": "a75",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_bx",
+      "label": "A76",
+      "title": "River Crossing",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_bx",
+      "directory": {
+        "path": "a76",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "typical90_a",
+      "label": "A77",
+      "title": "Yokan Party（★4）",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/typical90_a",
+      "directory": {
+        "path": "a77",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_bz",
+      "label": "B01",
+      "title": "A+B Problem",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_bz",
+      "directory": {
+        "path": "b01",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_ca",
+      "label": "B02",
+      "title": "Divisor Check",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ca",
+      "directory": {
+        "path": "b02",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_cb",
+      "label": "B03",
+      "title": "Supermarket 1",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_cb",
+      "directory": {
+        "path": "b03",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_cc",
+      "label": "B04",
+      "title": "Binary Representation 2",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_cc",
+      "directory": {
+        "path": "b04",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_ce",
+      "label": "B06",
+      "title": "Lottery",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ce",
+      "directory": {
+        "path": "b06",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "math_and_algorithm_al",
+      "label": "B07",
+      "title": "Convenience Store 2",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/math_and_algorithm_al",
+      "directory": {
+        "path": "b07",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_cg",
+      "label": "B08",
+      "title": "Counting Points",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_cg",
+      "directory": {
+        "path": "b08",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_ch",
+      "label": "B09",
+      "title": "Papers",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ch",
+      "directory": {
+        "path": "b09",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_cj",
+      "label": "B11",
+      "title": "Binary Search 2",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_cj",
+      "directory": {
+        "path": "b11",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_ck",
+      "label": "B12",
+      "title": "Equation",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ck",
+      "directory": {
+        "path": "b12",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_cl",
+      "label": "B13",
+      "title": "Supermarket 2",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_cl",
+      "directory": {
+        "path": "b13",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_cm",
+      "label": "B14",
+      "title": "Another Subset Sum",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_cm",
+      "directory": {
+        "path": "b14",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "dp_a",
+      "label": "B16",
+      "title": "Frog 1",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/dp_a",
+      "directory": {
+        "path": "b16",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_cp",
+      "label": "B17",
+      "title": "Frog 1 with Restoration",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_cp",
+      "directory": {
+        "path": "b17",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_cq",
+      "label": "B18",
+      "title": "Subset Sum with Restoration",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_cq",
+      "directory": {
+        "path": "b18",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_cr",
+      "label": "B19",
+      "title": "Knapsack 2",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_cr",
+      "directory": {
+        "path": "b19",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_cs",
+      "label": "B20",
+      "title": "Edit Distance",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_cs",
+      "directory": {
+        "path": "b20",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_ct",
+      "label": "B21",
+      "title": "Longest Subpalindrome",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ct",
+      "directory": {
+        "path": "b21",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_cv",
+      "label": "B23",
+      "title": "Traveling Salesman Problem",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_cv",
+      "directory": {
+        "path": "b23",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_cw",
+      "label": "B24",
+      "title": "Many Boxes",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_cw",
+      "directory": {
+        "path": "b24",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_cy",
+      "label": "B26",
+      "title": "Output Prime Numbers",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_cy",
+      "directory": {
+        "path": "b26",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_cz",
+      "label": "B27",
+      "title": "Calculate LCM",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_cz",
+      "directory": {
+        "path": "b27",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "math_and_algorithm_ap",
+      "label": "B28",
+      "title": "Fibonacci Easy (mod 1000000007)",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/math_and_algorithm_ap",
+      "directory": {
+        "path": "b28",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_db",
+      "label": "B29",
+      "title": "Power Hard",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_db",
+      "directory": {
+        "path": "b29",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_dc",
+      "label": "B30",
+      "title": "Combination 2",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_dc",
+      "directory": {
+        "path": "b30",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_dd",
+      "label": "B31",
+      "title": "Divisors Hard",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_dd",
+      "directory": {
+        "path": "b31",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_de",
+      "label": "B32",
+      "title": "Game 5",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_de",
+      "directory": {
+        "path": "b32",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_df",
+      "label": "B33",
+      "title": "Game 6",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_df",
+      "directory": {
+        "path": "b33",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_dg",
+      "label": "B34",
+      "title": "Game 7",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_dg",
+      "directory": {
+        "path": "b34",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_di",
+      "label": "B36",
+      "title": "Switching Lights",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_di",
+      "directory": {
+        "path": "b36",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_dj",
+      "label": "B37",
+      "title": "Sum of Digits",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_dj",
+      "directory": {
+        "path": "b37",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_dk",
+      "label": "B38",
+      "title": "Heights of Grass",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_dk",
+      "directory": {
+        "path": "b38",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_dl",
+      "label": "B39",
+      "title": "Taro's Job",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_dl",
+      "directory": {
+        "path": "b39",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_dm",
+      "label": "B40",
+      "title": "Divide by 100",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_dm",
+      "directory": {
+        "path": "b40",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_dn",
+      "label": "B41",
+      "title": "Reverse of Euclid",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_dn",
+      "directory": {
+        "path": "b41",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_do",
+      "label": "B42",
+      "title": "Two Faced Cards",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_do",
+      "directory": {
+        "path": "b42",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_dp",
+      "label": "B43",
+      "title": "Quiz Contest",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_dp",
+      "directory": {
+        "path": "b43",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_dq",
+      "label": "B44",
+      "title": "Grid Operations",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_dq",
+      "directory": {
+        "path": "b44",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_dr",
+      "label": "B45",
+      "title": "Blackboard 2",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_dr",
+      "directory": {
+        "path": "b45",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_dx",
+      "label": "B51",
+      "title": "Bracket",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_dx",
+      "directory": {
+        "path": "b51",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_dy",
+      "label": "B52",
+      "title": "Ball Simulation",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_dy",
+      "directory": {
+        "path": "b52",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_ea",
+      "label": "B54",
+      "title": "Counting Same Values",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ea",
+      "directory": {
+        "path": "b54",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_eb",
+      "label": "B55",
+      "title": "Difference",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_eb",
+      "directory": {
+        "path": "b55",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_ec",
+      "label": "B56",
+      "title": "Palindrome Queries",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ec",
+      "directory": {
+        "path": "b56",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_ed",
+      "label": "B57",
+      "title": "Calculator",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ed",
+      "directory": {
+        "path": "b57",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_ee",
+      "label": "B58",
+      "title": "Jumping",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ee",
+      "directory": {
+        "path": "b58",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_ef",
+      "label": "B59",
+      "title": "Number of Inversions",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ef",
+      "directory": {
+        "path": "b59",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_eh",
+      "label": "B61",
+      "title": "Influencer",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_eh",
+      "directory": {
+        "path": "b61",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_ei",
+      "label": "B62",
+      "title": "Print a Path",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ei",
+      "directory": {
+        "path": "b62",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "abc007_3",
+      "label": "B63",
+      "title": "幅優先探索",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/abc007_3",
+      "directory": {
+        "path": "b63",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_ek",
+      "label": "B64",
+      "title": "Shortest Path with Restoration",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ek",
+      "directory": {
+        "path": "b64",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_el",
+      "label": "B65",
+      "title": "Road to Promotion Hard",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_el",
+      "directory": {
+        "path": "b65",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_em",
+      "label": "B66",
+      "title": "Typhoon",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_em",
+      "directory": {
+        "path": "b66",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_en",
+      "label": "B67",
+      "title": "Max MST",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_en",
+      "directory": {
+        "path": "b67",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_eo",
+      "label": "B68",
+      "title": "ALGO Express",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_eo",
+      "directory": {
+        "path": "b68",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_ep",
+      "label": "B69",
+      "title": "Black Company 2",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ep",
+      "directory": {
+        "path": "b69",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_ey",
+      "label": "C01",
+      "title": "Tax Rate",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ey",
+      "directory": {
+        "path": "c01",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_ez",
+      "label": "C02",
+      "title": "Two Balls",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ez",
+      "directory": {
+        "path": "c02",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_fa",
+      "label": "C03",
+      "title": "Stock Queries",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_fa",
+      "directory": {
+        "path": "c03",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_fb",
+      "label": "C04",
+      "title": "Divisor Enumeration",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_fb",
+      "directory": {
+        "path": "c04",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_fc",
+      "label": "C05",
+      "title": "Lucky Numbers",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_fc",
+      "directory": {
+        "path": "c05",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_fd",
+      "label": "C06",
+      "title": "Regular Graph",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_fd",
+      "directory": {
+        "path": "c06",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_fe",
+      "label": "C07",
+      "title": "ALGO-MARKET",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_fe",
+      "directory": {
+        "path": "c07",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_ff",
+      "label": "C08",
+      "title": "ALGO4",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_ff",
+      "directory": {
+        "path": "c08",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "math_and_algorithm_ac",
+      "label": "C09",
+      "title": "Taro's Vacation",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/math_and_algorithm_ac",
+      "directory": {
+        "path": "c09",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_fh",
+      "label": "C10",
+      "title": "A Long Grid",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_fh",
+      "directory": {
+        "path": "c10",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_fi",
+      "label": "C11",
+      "title": "Election",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_fi",
+      "directory": {
+        "path": "c11",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_fj",
+      "label": "C12",
+      "title": "Taro the Novel Writer",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_fj",
+      "directory": {
+        "path": "c12",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_fk",
+      "label": "C13",
+      "title": "Select 2",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_fk",
+      "directory": {
+        "path": "c13",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_fl",
+      "label": "C14",
+      "title": "Commute Route",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_fl",
+      "directory": {
+        "path": "c14",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_fm",
+      "label": "C15",
+      "title": "Many Meetings",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_fm",
+      "directory": {
+        "path": "c15",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_fn",
+      "label": "C16",
+      "title": "Flights",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_fn",
+      "directory": {
+        "path": "c16",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_fo",
+      "label": "C17",
+      "title": "Strange Data Structure?",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_fo",
+      "directory": {
+        "path": "c17",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "typical90_s",
+      "label": "C18",
+      "title": "Pick Two（★6）",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/typical90_s",
+      "directory": {
+        "path": "c18",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_fq",
+      "label": "C19",
+      "title": "Gasoline Optimization Problem",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_fq",
+      "directory": {
+        "path": "c19",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "tessoku_book_fr",
+      "label": "C20",
+      "title": "Mayor's Challenge",
+      "url": "https://atcoder.jp/contests/tessoku-book/tasks/tessoku_book_fr",
+      "directory": {
+        "path": "c20",
+        "testdir": "tests"
+      }
+    }
+  ]
+}
