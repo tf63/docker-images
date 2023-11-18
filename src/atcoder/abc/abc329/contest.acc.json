@@ -1,0 +1,79 @@
+{
+  "contest": {
+    "id": "abc329",
+    "title": "Ｓｋｙ Inc, Programming Contest 2023（AtCoder Beginner Contest 329）",
+    "url": "https://atcoder.jp/contests/abc329"
+  },
+  "tasks": [
+    {
+      "id": "abc329_a",
+      "label": "A",
+      "title": "Spread",
+      "url": "https://atcoder.jp/contests/abc329/tasks/abc329_a",
+      "directory": {
+        "path": "a",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "abc329_b",
+      "label": "B",
+      "title": "Next",
+      "url": "https://atcoder.jp/contests/abc329/tasks/abc329_b",
+      "directory": {
+        "path": "b",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "abc329_c",
+      "label": "C",
+      "title": "Count xxx",
+      "url": "https://atcoder.jp/contests/abc329/tasks/abc329_c",
+      "directory": {
+        "path": "c",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "abc329_d",
+      "label": "D",
+      "title": "Election Quick Report",
+      "url": "https://atcoder.jp/contests/abc329/tasks/abc329_d",
+      "directory": {
+        "path": "d",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "abc329_e",
+      "label": "E",
+      "title": "Stamp",
+      "url": "https://atcoder.jp/contests/abc329/tasks/abc329_e",
+      "directory": {
+        "path": "e",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "abc329_f",
+      "label": "F",
+      "title": "Colored Ball",
+      "url": "https://atcoder.jp/contests/abc329/tasks/abc329_f",
+      "directory": {
+        "path": "f",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "abc329_g",
+      "label": "G",
+      "title": "Delivery on Tree",
+      "url": "https://atcoder.jp/contests/abc329/tasks/abc329_g",
+      "directory": {
+        "path": "g",
+        "testdir": "tests"
+      }
+    }
+  ]
+}
