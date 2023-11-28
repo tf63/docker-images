@@ -1,0 +1,79 @@
+{
+  "contest": {
+    "id": "abc330",
+    "title": "TOYOTA SYSTEMS Programming Contest 2023(AtCoder Beginner Contest 330)",
+    "url": "https://atcoder.jp/contests/abc330"
+  },
+  "tasks": [
+    {
+      "id": "abc330_a",
+      "label": "A",
+      "title": "Counting Passes",
+      "url": "https://atcoder.jp/contests/abc330/tasks/abc330_a",
+      "directory": {
+        "path": "a",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "abc330_b",
+      "label": "B",
+      "title": "Minimize Abs 1",
+      "url": "https://atcoder.jp/contests/abc330/tasks/abc330_b",
+      "directory": {
+        "path": "b",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "abc330_c",
+      "label": "C",
+      "title": "Minimize Abs 2",
+      "url": "https://atcoder.jp/contests/abc330/tasks/abc330_c",
+      "directory": {
+        "path": "c",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "abc330_d",
+      "label": "D",
+      "title": "Counting Ls",
+      "url": "https://atcoder.jp/contests/abc330/tasks/abc330_d",
+      "directory": {
+        "path": "d",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "abc330_e",
+      "label": "E",
+      "title": "Mex and Update",
+      "url": "https://atcoder.jp/contests/abc330/tasks/abc330_e",
+      "directory": {
+        "path": "e",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "abc330_f",
+      "label": "F",
+      "title": "Minimize Bounding  Square",
+      "url": "https://atcoder.jp/contests/abc330/tasks/abc330_f",
+      "directory": {
+        "path": "f",
+        "testdir": "tests"
+      }
+    },
+    {
+      "id": "abc330_g",
+      "label": "G",
+      "title": "Inversion Squared",
+      "url": "https://atcoder.jp/contests/abc330/tasks/abc330_g",
+      "directory": {
+        "path": "g",
+        "testdir": "tests"
+      }
+    }
+  ]
+}
