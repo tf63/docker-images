@@ -1,5 +1,18 @@
 ## Dockerfileをまとめておく場所
 
+### 備考
+- 一部のイメージではコンテナ内にユーザーを作成しています
+- コンテナ側とホスト側でUID/GIDが一致してない場合，権限周りのエラーを起こすことがあります
+- そのため，UID/GIDは`docker-compose.yml`や`docker.sh`で外から`USER_UID, USER_GID`という形で与えています
+
+- ホスト側のUID/GIDの確認はターミナルで次のコマンドを打ちます (Windowsでの動作は分かりません)
+```
+    # USER_UID
+    id -u 
+    # USER_GID
+    id -g
+```
+
 ### 記事
 
 [**Docker ってなんぞやという話 ~ Docker, Docker Compose のチュートリアル ~ VSCode の Remote Development まで**](https://qiita.com/tf63/items/684fe4b818ecd715aed9)

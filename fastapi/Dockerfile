@@ -54,4 +54,4 @@ COPY ./src /app/src
 EXPOSE 8080
 
 CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8080"]
-# docker build . --build-arg USER_UID=1000 --build-arg USER_GID=1000 --target production -t cloudrun-cd-exp-production
+# docker build . --build-arg USER_UID=1000 --build-arg USER_GID=1000 --target production -t image_name
