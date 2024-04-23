@@ -1,0 +1,13 @@
+version: "3.3"
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    tty: true
+    volumes:
+      - ./frontend:/app
+    ports:
+      - 5173:5173
+    command: sh -c "pnpm install && pnpm run dev"

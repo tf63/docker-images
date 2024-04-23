@@ -1,0 +1,6 @@
+vendor/assets
+node_modules/
+dist/
+.git
+.gitignore
+*.md
