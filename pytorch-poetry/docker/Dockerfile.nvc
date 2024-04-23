@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.1.1-cudnn8-runtime-ubuntu20.04 AS base
+FROM nvcr.io/nvidia/pytorch:22.10-py3
 
 # 非インタラクティブモードにする (入力待ちでブロックしなくなる)
 ENV DEBIAN_FRONTEND=noninteractive
@@ -13,19 +13,9 @@ ENV TORCH_HOME /app/.cache
 
 WORKDIR /app
 
-RUN apt update && \
-    apt install -y \
-    wget \
-    bzip2 \
-    build-essential \
-    git \
-    git-lfs \
-    curl \
-    ca-certificates \
-    libsndfile1-dev \
-    libgl1 \
-    python3.8 \
-    python3-pip
+# opencv用
+RUN apt update && apt install -y \
+    libgl1-mesa-dev
 
 # ----------------------------------------------------------------
 # create user
@@ -51,13 +41,7 @@ USER $USER_NAME
 ENV PATH /home/$USER_NAME/.local/bin:$PATH
 
 # ----------------------------------------------------------------
-# requiremtentsはtorchよりも更新されうるのでここでは入れない
-RUN pip3 install --no-cache-dir -U pip setuptools wheel
-
-# ----------------------------------------------------------------
-FROM base AS torch-1.9.0
-
-RUN pip3 install --no-cache-dir torch==1.9.0+cu111 torchvision==0.10.0+cu111 -f https://download.pytorch.org/whl/torch_stable.html
 
 COPY requirements.txt /app
+RUN pip3 install --no-cache-dir -U pip setuptools wheel
 RUN pip3 install --no-cache-dir -r requirements.txt

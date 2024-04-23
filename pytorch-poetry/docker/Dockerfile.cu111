@@ -55,9 +55,23 @@ ENV PATH /home/$USER_NAME/.local/bin:$PATH
 RUN pip3 install --no-cache-dir -U pip setuptools wheel
 
 # ----------------------------------------------------------------
-FROM base AS torch-1.9.0
+FROM base AS poetry
 
-RUN pip3 install --no-cache-dir torch==1.9.0+cu111 torchvision==0.10.0+cu111 -f https://download.pytorch.org/whl/torch_stable.html
+ENV POETRY_VERSION=1.8.2 
+ENV POETRY_NO_INTERACTION=1 
+ENV POETRY_VIRTUALENVS_CREATE=true
+ENV POETRY_VIRTUALENVS_IN_PROJECT=true
+ENV VENV_PATH="/app/.venv"
 
-COPY requirements.txt /app
-RUN pip3 install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir poetry==$POETRY_VERSION
+# ----------------------------------------------------------------
+FROM poetry AS torch-1.9.0
+
+# https://download.pytorch.org/whl/cu111/torch/
+RUN poetry add https://download.pytorch.org/whl/cu111/torch-1.9.0+cu111-cp38-cp38-linux_x86_64.whl
+# https://download.pytorch.org/whl/cu111/torchvision
+RUN poetry add https://download.pytorch.org/whl/cu111/torchvision-0.10.0+cu111-cp38-cp38-linux_x86_64.whl
+
+COPY poetry.lock pyproject.toml ./
+
+RUN poetry install

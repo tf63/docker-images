@@ -1,0 +1,16 @@
+{
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.autopep8",
+        "editor.formatOnSave": true,
+    },
+    "autopep8.args": [
+        "--aggressive",
+        "--indent-size=4",
+        "--max-line-length",
+        "119",
+        "--ignore=E111, E114, E402, E501"
+    ],
+    "flake8.args": [
+        "--ignore=W293, W504, E111, E114, E402, E501"
+    ]
+}

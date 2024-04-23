@@ -10,10 +10,8 @@
 DATASET_DIRS="$HOME/dataset"
 DATA_DIRS="$HOME/data"
 
-DOCKERFILE_NAME="Dockerfile.cu171"
-TORCH_VERSION="torch-1.13.0"
-# cu111 - torch-1.9.0
-# cu117 - torch-1.13.0, torch-2.0.0
+TORCH_VERSION="torch-1.9.0"
+DOCKERFILE_NAME="Dockerfile.cu111"
 
 build()
 {
@@ -22,12 +20,12 @@ build()
 
 shell() 
 {
-    docker run --rm --gpus all --shm-size=16g -it -v $(pwd):/app -v $DATASET_DIRS:/dataset -v $DATA_DIRS:/data $TORCH_VERSION /bin/bash
+    docker run --rm --gpus all --shm-size=16g -it -v $(pwd):/app -v $DATASET_DIRS:/dataset -v $DATA_DIRS:/data $TORCH_TAG /bin/bash
 }
 
 root()
 {
-    docker run --rm --gpus all --shm-size=16g --user 0:0 -it -v $(pwd):/app -v $DATASET_DIRS:/dataset -v $DATA_DIRS:/data $TORCH_VERSION /bin/bash
+    docker run --rm --gpus all --shm-size=16g --user 0:0 -it -v $(pwd):/app -v $DATASET_DIRS:/dataset -v $DATA_DIRS:/data $TORCH_TAG /bin/bash
 }
 
 help()
@@ -37,7 +35,7 @@ help()
 
 
 if [[ $1 == "build" ]]; then
-    build
+    build $2
 elif [[ $1 == "shell" ]]; then
     shell 
 elif [[ $1 == "root" ]]; then
