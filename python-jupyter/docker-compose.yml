@@ -1,0 +1,19 @@
+version: "3.3"
+
+services:
+  python:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - USER_UID=1000
+        - USER_GID=1000
+        - JUPYTER_TOKEN="token"
+    container_name: "python"
+    stdin_open: true
+    tty: true
+    ports:
+      - 8888:8888
+    volumes:
+      - ./src:/app/src
+      - ./notebook:/app/notebook
