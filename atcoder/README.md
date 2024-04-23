@@ -1,4 +1,4 @@
-## AtCoder の環境を Docker で作りたい
+# AtCoder の環境を Docker で作りたい
 
 **やりたいこと**
 
@@ -40,7 +40,7 @@ https://github.com/tf63/docker_images/tree/atcoder
         └── input.txt
 ```
 
-### 使用するツール
+## 使用するツール
 
 **online-judge-tools (oj)**
 
@@ -54,7 +54,7 @@ oj の問題のダウンロードと提出をうまいことやってくれる
 
 https://github.com/Tatamo/atcoder-cli/tree/develop
 
-### 環境構築
+## 環境構築
 
 **Dockerfile**
 
@@ -165,7 +165,7 @@ VSCode へのアタッチ時に拡張機能 `Task Runner` をインストール�
 
   <img src="img/task_runner.png" width=40%>
 
-### 初期設定
+## 初期設定
 
 **acc, oj のログイン**
 
@@ -188,7 +188,7 @@ acc, oj で AtCoder のユーザー名とパスワードを入力してログイ
     acc config default-task-choice all
 ```
 
-### 問題のダウンロード
+## 問題のダウンロード
 
 vscode のタスク`abc_dl`, `arc_dl`を実行すると，abc, arc 問題のダウンロードができる
 
@@ -219,13 +219,13 @@ vscode のタスク`abc_dl`, `arc_dl`を実行すると，abc, arc 問題のダ�
                     (略)
 ```
 
-### テストの実行
+## テストの実行
 
 解答用の cpp ファイルを開いて，vscode のタスク`test`を実行すると，例題でのテストが開始される
 
 ![](img/task_test.png)
 
-### 解答の提出
+## 解答の提出
 
 解答用の cpp ファイルを開いて，vscode のタスク`submit`を実行すると，自動で提出できる
 
@@ -243,7 +243,7 @@ AtCoder の提出ページに行けば提出が確認できる
 
 ---
 
-### おまけ
+## おまけ
 
 **acc のインストール先**
 
@@ -288,7 +288,7 @@ AtCoder の提出ページに行けば提出が確認できる
     acc submit 提出するファイルへのパス
 ```
 
-### 参考
+## 参考
 
 一連の流れ
 
