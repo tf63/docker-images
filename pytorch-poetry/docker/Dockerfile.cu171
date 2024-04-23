@@ -45,6 +45,7 @@ RUN if ! getent group $USER_GID >/dev/null; then \
 
 # ユーザーを作成
 RUN useradd -m -u $USER_UID -g $USER_GID -s /bin/bash $USER_NAME
+RUN chown ${USER_UID}:${USER_GID} /app
 
 # 初期ユーザーの変更
 USER $USER_NAME
@@ -57,14 +58,29 @@ RUN pip3 install --no-cache-dir -U pip setuptools wheel
 # ----------------------------------------------------------------
 FROM base AS torch-1.13.0
 
-RUN pip3 install --no-cache-dir torch==1.13.0+cu117 torchvision==0.14.0+cu117 -f https://download.pytorch.org/whl/torch_stable.html 
+ENV POETRY_VERSION=1.8.2 
+ENV POETRY_NO_INTERACTION=1 
+ENV POETRY_VIRTUALENVS_CREATE=true
+ENV POETRY_VIRTUALENVS_IN_PROJECT=true
+ENV VENV_PATH="/app/.venv"
 
-COPY requirements.txt /app
-RUN pip3 install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir poetry==$POETRY_VERSION
+
+COPY pyproject.toml poetry.lock ./
+
+RUN poetry install
 # ----------------------------------------------------------------
+# 上と同じやつでも良い
 FROM base AS torch-2.0.0
 
-RUN pip3 install --no-cache-dir torch==2.0.0+cu117 torchvision==0.15.0+cu117 -f https://download.pytorch.org/whl/torch_stable.html 
+ENV POETRY_VERSION=1.8.2 
+ENV POETRY_NO_INTERACTION=1 
+ENV POETRY_VIRTUALENVS_CREATE=true
+ENV POETRY_VIRTUALENVS_IN_PROJECT=true
+ENV VENV_PATH="/app/.venv"
 
-COPY requirements.txt /app
-RUN pip3 install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir poetry==$POETRY_VERSION
+
+COPY pyproject.toml poetry.lock ./
+
+RUN poetry install

@@ -7,8 +7,8 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.8"
-torch = {url = "https://download.pytorch.org/whl/cu111/torch-1.9.0%2Bcu111-cp38-cp38-linux_x86_64.whl"}
-torchvision = {url = "https://download.pytorch.org/whl/cu111/torchvision-0.10.0%2Bcu111-cp38-cp38-linux_x86_64.whl"}
+torch = {url = "https://download.pytorch.org/whl/cu117/torch-1.13.0%2Bcu117-cp38-cp38-linux_x86_64.whl"}
+torchvision = {url = "https://download.pytorch.org/whl/cu117/torchvision-0.14.0%2Bcu117-cp38-cp38-linux_x86_64.whl"}
 
 [build-system]
 requires = ["poetry-core"]
