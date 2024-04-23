@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM python:3.9-slim
+FROM python:3.8.19-slim
 
 WORKDIR /app
 
@@ -29,7 +29,7 @@ RUN chown ${USER_UID}:${USER_GID} /app
 USER $USER_NAME
 ENV PATH="$PATH:/home/${USER_NAME}/.local/bin"
 
-COPY docker/python-pip/requirements.txt /app
+COPY requirements.txt /app
 
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
