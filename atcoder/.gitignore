@@ -1,0 +1,10 @@
+out/
+data/
+.DS_Store
+tests/
+.out
+.in
+.env.prod
+venv
+node_modules/
+db*

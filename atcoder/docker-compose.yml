@@ -13,3 +13,4 @@ services:
     tty: true
     volumes:
       - ./:/app
+    command: ["/bin/bash"]

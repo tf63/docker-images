@@ -1,16 +1,12 @@
-# syntax=docker/dockerfile:1
 FROM node:19
+
+WORKDIR /app
 
 # インタラクティブモードにならないようにする
 ARG DEBIAN_FRONTEND=noninteractive
 
 # タイムゾーンを日本に設定
 ENV TZ=Asia/Tokyo
-
-WORKDIR /app
-
-# 起動シェルをshからbashに変更
-SHELL ["/bin/bash", "-c"]
 
 # パッケージなど
 RUN apt update && \
