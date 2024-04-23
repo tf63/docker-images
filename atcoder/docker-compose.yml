@@ -1,0 +1,15 @@
+version: "3.3"
+
+services:
+  # ----------------------------------------------------------------
+  # AtCoder
+  # ----------------------------------------------------------------
+  atcoder:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: atcoder
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./:/app
