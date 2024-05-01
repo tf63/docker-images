@@ -17,6 +17,7 @@ TORCH_VERSION="torch-1.13.0"
 
 build()
 {
+    export DOCKER_BUILDKIT=1 
     docker build . -f docker/$DOCKERFILE_NAME --target $TORCH_VERSION --build-arg USER_UID=`(id -u)` --build-arg USER_GID=`(id -g)` -t $TORCH_VERSION
 }
 
