@@ -12,5 +12,5 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - ./src:/app/src
+      - ./:/app
     command: ["/bin/bash"]

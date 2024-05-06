@@ -33,9 +33,5 @@ RUN chown ${USER_UID}:${USER_GID} /app
 USER $USER_NAME
 ENV PATH="$PATH:/home/${USER_NAME}/.local/bin:${VENV_PATH}/bin"
 
-COPY poetry.lock pyproject.toml ./
-
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir poetry==$POETRY_VERSION
-
-RUN poetry install
