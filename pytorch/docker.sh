@@ -10,7 +10,7 @@
 DATASET_DIRS="$HOME/dataset"
 DATA_DIRS="$HOME/data"
 
-DOCKERFILE_NAME="Dockerfile.cu171"
+DOCKERFILE_NAME="Dockerfile.cu117"
 TORCH_VERSION="torch-1.13.0"
 # cu111 - torch-1.9.0
 # cu117 - torch-1.13.0, torch-2.0.0
