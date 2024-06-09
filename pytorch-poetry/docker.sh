@@ -24,7 +24,7 @@ build()
 
 shell()
 {
-    docker run --name $EXP_NAME --rm --gpus all --shm-size=32g -it -v $(pwd):/app -v $DATASET_DIRS:/dataset -v $DATA_DIRS:/data -v $DATA_DIRS/cil-ease/ckpts:/app/ckpts $TORCH_VERSION:$EXP_NAME /bin/bash
+    docker run --name $EXP_NAME --rm --gpus all --shm-size=32g -it -v $(pwd):/app -v $DATASET_DIRS:/dataset -v $DATA_DIRS:/data -v $TORCH_VERSION:$EXP_NAME /bin/bash
 }
 
 root()
