@@ -35,9 +35,8 @@ exclude = [".venv"]
 max-line-length = 119
 indent-size = 4
 ignore = "E111, E114, E402, E501,"
-in-place = true
-recursive = true
 aggressive = 3
+exclude = ".venv"
 
 [tool.mypy]
 python_version = "3.8"

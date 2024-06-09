@@ -7,7 +7,7 @@
 `poetry add`でtorchを入れて`pyproject.toml`と`poetry.lock`を作る作戦
 ```
     # + -> %2B としないと弾かれます
-    
+
     # https://download.pytorch.org/whl/cu111/torch/
     poetry add https://download.pytorch.org/whl/cu111/torch-1.9.0%2Bcu111-cp38-cp38-linux_x86_64.whl
     # https://download.pytorch.org/whl/cu111/torchvision

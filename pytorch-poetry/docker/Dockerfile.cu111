@@ -58,14 +58,14 @@ RUN pip3 install --no-cache-dir -U pip setuptools wheel
 # ----------------------------------------------------------------
 FROM base AS torch-1.9.0
 
-ENV POETRY_VERSION=1.8.2 
-ENV POETRY_NO_INTERACTION=1 
+ENV POETRY_VERSION=1.8.2
+ENV POETRY_NO_INTERACTION=1
 ENV POETRY_VIRTUALENVS_CREATE=true
+# torchが大きすぎるのでin-projectで.venvを作りたい
 ENV POETRY_VIRTUALENVS_IN_PROJECT=true
-ENV VENV_PATH="/app/.venv"
 
 RUN pip install --no-cache-dir poetry==$POETRY_VERSION
 
-COPY pyproject.toml poetry.lock ./
-
-RUN poetry install
+# in-projectなのでコンテナ起動後に実行する
+# COPY pyproject.toml poetry.lock ./
+# RUN poetry install

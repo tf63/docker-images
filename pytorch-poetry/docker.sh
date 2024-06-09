@@ -10,6 +10,7 @@
 DATASET_DIRS="$HOME/dataset"
 DATA_DIRS="$HOME/data"
 
+EXP_NAME="sample"
 DOCKERFILE_NAME="Dockerfile.cu111"
 TORCH_VERSION="torch-1.9.0"
 # cu111 - torch-1.9.0
@@ -17,18 +18,18 @@ TORCH_VERSION="torch-1.9.0"
 
 build()
 {
-    export DOCKER_BUILDKIT=1 
-    docker build . -f docker/$DOCKERFILE_NAME --target $TORCH_VERSION --build-arg USER_UID=`(id -u)` --build-arg USER_GID=`(id -g)` -t $TORCH_VERSION:poetry
+    DOCKER_BUILDKIT=1
+    docker build . -f docker/$DOCKERFILE_NAME --target $TORCH_VERSION --build-arg USER_UID=`(id -u)` --build-arg USER_GID=`(id -g)` -t $TORCH_VERSION:$EXP_NAME
 }
 
-shell() 
+shell()
 {
-    docker run --rm --gpus all --shm-size=16g -it -v $(pwd):/app -v $DATASET_DIRS:/dataset -v $DATA_DIRS:/data $TORCH_VERSION:poetry /bin/bash
+    docker run --name $EXP_NAME --rm --gpus all --shm-size=32g -it -v $(pwd):/app -v $DATASET_DIRS:/dataset -v $DATA_DIRS:/data -v $DATA_DIRS/cil-ease/ckpts:/app/ckpts $TORCH_VERSION:$EXP_NAME /bin/bash
 }
 
 root()
 {
-    docker run --rm --gpus all --shm-size=16g --user 0:0 -it -v $(pwd):/app -v $DATASET_DIRS:/dataset -v $DATA_DIRS:/data $TORCH_VERSION:poetry /bin/bash
+    docker run --name $EXP_NAME --rm --gpus all --shm-size=32g --user 0:0 -it -v $(pwd):/app -v $DATASET_DIRS:/dataset -v $DATA_DIRS:/data $TORCH_VERSION:$EXP_NAME /bin/bash
 }
 
 help()
@@ -36,11 +37,10 @@ help()
     echo "usage: bash docker.sh [build|shell|root|help]"
 }
 
-
 if [[ $1 == "build" ]]; then
     build $2
 elif [[ $1 == "shell" ]]; then
-    shell 
+    shell
 elif [[ $1 == "root" ]]; then
     root
 elif [[ $1 == "help" ]]; then
