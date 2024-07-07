@@ -1,0 +1,14 @@
+version: "3.3"
+
+services:
+  go:
+    container_name: go
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - target=dev
+    volumes:
+      - .:/app
+    ports:
+      - 8080:8080
