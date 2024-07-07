@@ -30,10 +30,17 @@ RUN go build -ldflags '-s -w' -o ./server
 # ----------------------------------------------------------------
 FROM alpine as runner
 
+WORKDIR /app
+
 RUN apk update
 
-COPY --from=builder /app/server .
+RUN addgroup --system --gid 10001 golang
+RUN adduser --system --uid 10001 golang
+
+COPY --from=builder --chown=golang:golang /app/server .
 ENTRYPOINT ["./server"]
+
+USER golang
 
 # ポートの開放
 EXPOSE 8080
