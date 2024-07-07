@@ -46,6 +46,20 @@ USER golang
 EXPOSE 8080
 
 # ----------------------------------------------------------------
+# 本番環境 (distroless)
+# https://github.com/GoogleContainerTools/distroless?tab=readme-ov-file
+# ----------------------------------------------------------------
+FROM gcr.io/distroless/static-debian12 as runner-distroless
+
+WORKDIR /app
+
+COPY --from=builder --chown=golang:golang /app/server .
+
+ENTRYPOINT ["./server"]
+
+# ポートの開放
+EXPOSE 8080
+# ----------------------------------------------------------------
 # 開発環境
 # ----------------------------------------------------------------
 FROM golang:1.19-alpine as dev
