@@ -2,8 +2,6 @@
 コンテナの起動
 ```
     docker compose up -d
-    # python
-    docker compose exec python python
     # bash
     docker compose exec python /bin/bash
 ```
