@@ -53,7 +53,7 @@ FROM gcr.io/distroless/static-debian12 as runner-distroless
 
 WORKDIR /app
 
-COPY --from=builder --chown=golang:golang /app/server .
+COPY --from=builder /app/server .
 
 ENTRYPOINT ["./server"]
 
