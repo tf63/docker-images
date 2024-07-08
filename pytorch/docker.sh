@@ -17,11 +17,10 @@ TORCH_VERSION="torch-1.13.0"
 
 build()
 {
-    export DOCKER_BUILDKIT=1 
-    docker build . -f docker/$DOCKERFILE_NAME --target $TORCH_VERSION --build-arg USER_UID=`(id -u)` --build-arg USER_GID=`(id -g)` -t $TORCH_VERSION
+    DOCKER_BUILDKIT=1 docker build . -f docker/$DOCKERFILE_NAME --target $TORCH_VERSION --build-arg USER_UID=`(id -u)` --build-arg USER_GID=`(id -g)` -t $TORCH_VERSION
 }
 
-shell() 
+shell()
 {
     docker run --rm --gpus all --shm-size=16g -it -v $(pwd):/app -v $DATASET_DIRS:/dataset -v $DATA_DIRS:/data $TORCH_VERSION /bin/bash
 }
@@ -40,7 +39,7 @@ help()
 if [[ $1 == "build" ]]; then
     build
 elif [[ $1 == "shell" ]]; then
-    shell 
+    shell
 elif [[ $1 == "root" ]]; then
     root
 elif [[ $1 == "help" ]]; then

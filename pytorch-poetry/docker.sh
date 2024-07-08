@@ -18,8 +18,7 @@ TORCH_VERSION="torch-1.9.0"
 
 build()
 {
-    DOCKER_BUILDKIT=1
-    docker build . -f docker/$DOCKERFILE_NAME --target $TORCH_VERSION --build-arg USER_UID=`(id -u)` --build-arg USER_GID=`(id -g)` -t $TORCH_VERSION:$EXP_NAME
+    DOCKER_BUILDKIT=1 docker build . -f docker/$DOCKERFILE_NAME --target $TORCH_VERSION --build-arg USER_UID=`(id -u)` --build-arg USER_GID=`(id -g)` -t $TORCH_VERSION:$EXP_NAME
 }
 
 shell()
