@@ -37,13 +37,13 @@ WORKDIR /app
 
 RUN apk update
 
-RUN addgroup --system --gid 10001 golang
-RUN adduser --system --uid 10001 golang
+RUN addgroup --system --gid 10001 nonroot
+RUN adduser --system --uid 10001 nonroot
 
-COPY --from=builder --chown=golang:golang /app/server .
+COPY --from=builder --chown=nonroot:nonroot /app/server .
 ENTRYPOINT ["./server"]
 
-USER golang
+USER nonroot
 
 # ポートの開放
 EXPOSE 8080
@@ -52,9 +52,11 @@ EXPOSE 8080
 # 本番環境 (distroless)
 # https://github.com/GoogleContainerTools/distroless?tab=readme-ov-file
 # ----------------------------------------------------------------
-FROM gcr.io/distroless/static-debian12 as runner-distroless
+FROM gcr.io/distroless/static-debian12:nonroot as runner-distroless
 
 WORKDIR /app
+
+USER nonroot
 
 COPY --from=builder /app/server .
 
