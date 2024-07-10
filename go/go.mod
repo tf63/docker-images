@@ -1,4 +1,4 @@
-module github.com/tf63/go-cloudrun-exp
+module github.com/tf63/docker-images
 
 go 1.19
 
