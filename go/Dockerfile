@@ -20,9 +20,12 @@ FROM base as builder
 COPY --from=deps /go/pkg /go/pkg
 COPY . .
 
+# 外部依存の無い実行ファイルを作る
 ARG CGO_ENABLED=0
+# 64bit linux用にビルドする
 ARG GOOS=linux
 ARG GOARCH=amd64
+# ビルド成果物にデバック情報が含まれないようにする
 RUN go build -ldflags '-s -w' -o ./server
 
 # ----------------------------------------------------------------
