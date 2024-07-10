@@ -31,11 +31,9 @@ RUN go build -ldflags '-s -w' -o ./server
 # ----------------------------------------------------------------
 # 本番環境
 # ----------------------------------------------------------------
-FROM alpine as runner
+FROM alpine as runner-alpine
 
 WORKDIR /app
-
-RUN apk update
 
 RUN addgroup --system --gid 10001 nonroot
 RUN adduser --system --uid 10001 nonroot
