@@ -53,9 +53,6 @@ cover/
 # Jupyter Notebook
 .ipynb_checkpoints
 
-# pyenv
-.python-version
-
 # mypy
 .mypy_cache/
 .dmypy.json
@@ -64,9 +61,6 @@ dmypy.json
 # PyCharm
 .idea/
 *.iml
-
-# VSCode
-.vscode/
 
 # Local environment
 .env
