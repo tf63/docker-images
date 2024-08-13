@@ -13,8 +13,10 @@ ENV TORCH_HOME /app/.cache
 
 WORKDIR /app
 
-RUN apt update && \
-    apt install -y \
+RUN --mount=type=cache,target=/var/lib/apt,sharing=locked \
+    --mount=type=cache,target=/var/cache/apt,sharing=locked \
+    apt-get update && \
+    apt-get install -y \
     wget \
     bzip2 \
     build-essential \
@@ -57,14 +59,14 @@ RUN pip3 install --no-cache-dir -U pip setuptools wheel
 # ----------------------------------------------------------------
 FROM base AS torch-1.13.0
 
-RUN pip3 install --no-cache-dir torch==1.13.0+cu117 torchvision==0.14.0+cu117 -f https://download.pytorch.org/whl/torch_stable.html 
+RUN pip3 install --no-cache-dir torch==1.13.0+cu117 torchvision==0.14.0+cu117 -f https://download.pytorch.org/whl/torch_stable.html
 
 COPY requirements.txt /app
 RUN pip3 install --no-cache-dir -r requirements.txt
 # ----------------------------------------------------------------
 FROM base AS torch-2.0.0
 
-RUN pip3 install --no-cache-dir torch==2.0.0+cu117 torchvision==0.15.0+cu117 -f https://download.pytorch.org/whl/torch_stable.html 
+RUN pip3 install --no-cache-dir torch==2.0.0+cu117 torchvision==0.15.0+cu117 -f https://download.pytorch.org/whl/torch_stable.html
 
 COPY requirements.txt /app
 RUN pip3 install --no-cache-dir -r requirements.txt

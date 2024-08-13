@@ -10,6 +10,7 @@ ARG USER_GID
 ARG USER_NAME=user
 ARG GROUP_NAME=user
 
+ARG DEBIAN_FRONTEND=noninteractive
 ENV PYTHON_VERSION=3.9.19
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -25,6 +26,7 @@ RUN if ! getent group $USER_GID >/dev/null; then \
 
 # ユーザーを作成
 RUN useradd -m -u $USER_UID -g $USER_GID -s /bin/bash $USER_NAME
+
 RUN chown $USER_UID:$USER_GID /app && \
     mkdir $RYE_HOME && \
     chown $USER_UID:$USER_GID $RYE_HOME
@@ -34,20 +36,20 @@ RUN chown $USER_UID:$USER_GID /app && \
 # ----------------------------------------------------------------
 FROM base as dev
 
-RUN apt-get update && \
-    apt-get install -y curl && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+RUN --mount=type=cache,target=/var/lib/apt,sharing=locked \
+    --mount=type=cache,target=/var/cache/apt,sharing=locked \
+    apt-get update && \
+    apt-get install -y curl
 
 # 初期ユーザーの変更
 USER $USER_NAME
 
 # ryeのインストール
-RUN curl -sSf https://rye.astral.sh/get | RYE_VERSION=$RYE_VERSION RYE_INSTALL_OPTION="--yes" RYE_TOOLCHAIN_VERSION=$PYTHON_VERSION bash
-
-RUN rye config --set-bool behavior.global-python=false && \
+RUN curl -sSf https://rye.astral.sh/get | RYE_VERSION=$RYE_VERSION RYE_INSTALL_OPTION="--yes" RYE_TOOLCHAIN_VERSION=$PYTHON_VERSION bash && \
+    rye config --set-bool behavior.global-python=true && \
     rye config --set-bool behavior.use-uv=true
 
 # python環境構築
 COPY --chown=$USER_NAME:$USER_NAME .python-version pyproject.toml requirements.lock requirements-dev.lock ./
+
 RUN rye pin "$(cat .python-version)" && rye sync
