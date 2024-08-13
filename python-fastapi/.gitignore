@@ -53,6 +53,9 @@ cover/
 # Jupyter Notebook
 .ipynb_checkpoints
 
+# ruff
+.ruff_cache
+
 # mypy
 .mypy_cache/
 .dmypy.json
