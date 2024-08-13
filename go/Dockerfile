@@ -9,8 +9,10 @@ WORKDIR /app
 FROM base as deps
 
 # モジュールのダウンロード
-COPY go.mod go.sum ./
-RUN go mod download
+RUN --mount=type=cache,target=/go/pkg/mod/,sharing=locked \
+    --mount=type=bind,source=go.sum,target=go.sum \
+    --mount=type=bind,source=go.mod,target=go.mod \
+    go mod download -x
 
 # ----------------------------------------------------------------
 # ビルド
@@ -18,7 +20,6 @@ RUN go mod download
 FROM base as builder
 
 COPY --from=deps /go/pkg /go/pkg
-COPY . .
 
 # 外部依存の無い実行ファイルを作る
 ARG CGO_ENABLED=0
@@ -26,7 +27,9 @@ ARG CGO_ENABLED=0
 ARG GOOS=linux
 ARG GOARCH=amd64
 # ビルド成果物にデバック情報が含まれないようにする
-RUN go build -ldflags '-s -w' -o ./server
+RUN --mount=type=cache,target=/go/pkg/mod/ \
+    --mount=type=bind,target=. \
+    go build -ldflags '-s -w' -o /build/server
 
 # ----------------------------------------------------------------
 # 本番環境
@@ -38,7 +41,7 @@ WORKDIR /app
 RUN addgroup --system --gid 10001 nonroot
 RUN adduser --system --uid 10001 nonroot
 
-COPY --from=builder --chown=nonroot:nonroot /app/server .
+COPY --from=builder --chown=nonroot:nonroot /build/server .
 ENTRYPOINT ["./server"]
 
 USER nonroot
@@ -56,7 +59,7 @@ WORKDIR /app
 
 USER nonroot
 
-COPY --from=builder /app/server .
+COPY --from=builder /build/server .
 
 ENTRYPOINT ["./server"]
 
