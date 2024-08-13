@@ -1,4 +1,4 @@
-FROM python:3.8.19-slim
+FROM debian:bullseye-slim as base
 
 WORKDIR /app
 
@@ -10,14 +10,13 @@ ARG USER_GID
 ARG USER_NAME=user
 ARG GROUP_NAME=user
 
+ENV PYTHON_VERSION=3.9.19
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONDONTWRITEBYTECODE=1
-ENV PIP_DISABLE_PIP_VERSION_CHECK=on
-ENV PIP_DEFAULT_TIMEOUT=100
-ENV POETRY_VERSION=1.8.2
-ENV POETRY_NO_INTERACTION=1
-ENV POETRY_VIRTUALENVS_CREATE=true
-ENV POETRY_VIRTUALENVS_IN_PROJECT=true
+ENV RYE_VERSION=0.38.0
+ENV RYE_HOME=/opt/rye
+
+ENV PATH=$PATH:$RYE_HOME/shims
 
 # グループが存在しなかったら，適当なグループを作成
 RUN if ! getent group $USER_GID >/dev/null; then \
@@ -26,15 +25,29 @@ RUN if ! getent group $USER_GID >/dev/null; then \
 
 # ユーザーを作成
 RUN useradd -m -u $USER_UID -g $USER_GID -s /bin/bash $USER_NAME
-RUN chown ${USER_UID}:${USER_GID} /app
+RUN chown $USER_UID:$USER_GID /app && \
+    mkdir $RYE_HOME && \
+    chown $USER_UID:$USER_GID $RYE_HOME
+
+# ----------------------------------------------------------------
+# develepment environement
+# ----------------------------------------------------------------
+FROM base as dev
+
+RUN apt-get update && \
+    apt-get install -y curl && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 # 初期ユーザーの変更
 USER $USER_NAME
-ENV PATH="$PATH:/home/${USER_NAME}/.local/bin"
 
-COPY poetry.lock pyproject.toml ./
+# ryeのインストール
+RUN curl -sSf https://rye.astral.sh/get | RYE_VERSION=$RYE_VERSION RYE_INSTALL_OPTION="--yes" RYE_TOOLCHAIN_VERSION=$PYTHON_VERSION bash
 
-RUN pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir poetry==$POETRY_VERSION
+RUN rye config --set-bool behavior.global-python=false && \
+    rye config --set-bool behavior.use-uv=true
 
-RUN poetry install
+# python環境構築
+COPY --chown=$USER_NAME:$USER_NAME .python-version pyproject.toml requirements.lock requirements-dev.lock ./
+RUN rye pin "$(cat .python-version)" && rye sync
