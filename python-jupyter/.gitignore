@@ -1,89 +1,81 @@
-# ---------------------------------------------
-# Local
-# ---------------------------------------------
-.DS_Store
-.out
-.env
-
-venv/
-out/
-data/
-
-# ---------------------------------------------
-# Python
-# ---------------------------------------------
-
-# ignore migration files
-migrations/
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
+*.pyc
 
 # C extensions
 *.so
 
 # Distribution / packaging
 .Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-share/python-wheels/
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+*.egg
 *.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
-
-# ---------------------------------------------
-# Poetry
-# ---------------------------------------------
-*.pyc
-
-# Packages
-*.egg
-!/tests/**/*.egg
-/*.egg-info
-/dist/*
-build
-_build
-.cache
-*.so
+dist/
+build/
+eggs/
+parts/
+bin/
+var/
+sdist/
+wheels/
+*.manifest
+*.spec
 
 # Installer logs
 pip-log.txt
+pip-wheel-metadata
+pip-delete-this-directory.txt
 
 # Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
 .coverage
-.pytest_cache
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
 
-.idea/*
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
 .python-version
-# .vscode/*
 
-# /test.py
-# /test_*.*
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
 
-/setup.cfg
-MANIFEST.in
-/setup.py
-/docs/site/*
-# /tests/fixtures/simple_project/setup.py
-# /tests/fixtures/project_with_extras/setup.py
-.mypy_cache
+# PyCharm
+.idea/
+*.iml
 
-.venv
-/releases/*
-pip-wheel-metadata
-/poetry.toml
+# VSCode
+.vscode/
 
-poetry/core/*
+# Local environment
+.env
+
+# macOS
+.DS_Store
+
+# Output directories
+.out
+out/
+data/
+migrations/
