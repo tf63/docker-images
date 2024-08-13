@@ -1,6 +1,6 @@
 {
     "name": "AtCoder",
-    "dockerComposeFile": "../docker-compose.yml",
+    "dockerComposeFile": "../compose.yaml",
     "service": "atcoder",
     "workspaceFolder": "/app",
     "customizations": {
@@ -18,7 +18,7 @@
                 "python.linting.pylintEnabled": false,
                 "python.linting.pycodestyleEnabled": false,
                 "python.linting.lintOnSave": true,
-                
+
                 "files.associations": {
                     "array": "cpp",
                     "atomic": "cpp",
