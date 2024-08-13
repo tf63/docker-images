@@ -17,7 +17,7 @@ ENV PIP_DEFAULT_TIMEOUT=100
 ENV POETRY_VERSION=1.8.2
 ENV POETRY_NO_INTERACTION=1
 ENV POETRY_VIRTUALENVS_CREATE=true
-ENV POETRY_VIRTUALENVS_IN_PROJECT=false
+ENV POETRY_VIRTUALENVS_IN_PROJECT=true
 
 # グループが存在しなかったら，適当なグループを作成
 RUN if ! getent group $USER_GID >/dev/null; then \
@@ -37,6 +37,7 @@ COPY poetry.lock pyproject.toml ./
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir poetry==$POETRY_VERSION
 
+# キャッシュを作っておく
 RUN poetry install --only main
 
 # ----------------------------------------------------------------
@@ -53,5 +54,4 @@ COPY ./src /app/src
 EXPOSE 8080
 
 CMD ["poetry", "run", "uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8080"]
-# docker build . --build-arg USER_UID=1000 --build-arg USER_GID=1000 --target production -t image_name
-# docker run -p 8080:8080 image_name
+

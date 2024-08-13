@@ -1,5 +1,7 @@
 # FastAPI 環境
+
 コンテナの起動
+
 ```
     # これだけでuvicornサーバーは立ち上がります
     docker compose up -d
@@ -7,7 +9,8 @@
     docker compose exec python /bin/bash
 ```
 
-production用のビルド
+production 用のビルド
+
 ```
     docker build . --build-arg USER_UID=1000 --build-arg USER_GID=1000 --target production -t image_name
 ```
