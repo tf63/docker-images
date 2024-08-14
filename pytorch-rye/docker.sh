@@ -47,8 +47,10 @@ shell()
                 --rm -it \
                 --gpus all \
                 --shm-size=32g \
+                -v $(pwd):/app \
                 -v $DATASET_DIRS:/dataset \
                 -v $DATA_DIRS:/data \
+                -v $VOLUME_NAME:/app/.venv \
                 $TORCH_VERSION:$EXP_NAME /bin/bash
 }
 
