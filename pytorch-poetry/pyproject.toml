@@ -5,49 +5,74 @@ description = ""
 authors = ["Your Name <you@example.com>"]
 readme = "README.md"
 
-[tool.poetry.dependencies]
-python = "^3.8"
-torch = {url = "https://download.pytorch.org/whl/cu111/torch-1.9.0%2Bcu111-cp38-cp38-linux_x86_64.whl"}
-torchvision = {url = "https://download.pytorch.org/whl/cu111/torchvision-0.10.0%2Bcu111-cp38-cp38-linux_x86_64.whl"}
-
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
+[[tool.poetry.source]]
+name = "torch"
+url = "https://download.pytorch.org/whl"
+priority = "supplemental"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+torch = "1.9.0+cu111"
+
 [tool.poetry.group.dev.dependencies]
-autopep8 = "2.0.0"
-isort = "^5.13.2"
-pytest = "^7.4.3"
-mypy = "^1.8.0"
-pyproject-flake8 = "5.0.4"
+ruff = "^0.5.7"
+pytest = "^8.3.2"
+mypy = "^1.11.1"
 
-[tool.isort]
-line_length = 119
-multi_line_output = 3
-include_trailing_comma = true
-known_local_folder=['config',]
+[tool.ruff]
+line-length = 119
+indent-width = 4
+# include files: ["*.py", "*.pyi", "**/pyproject.toml] https://docs.astral.sh/ruff/settings/#include
+# exclude files: [".venv", "dist", ...] https://docs.astral.sh/ruff/settings/#exclude
 
-[tool.flake8]
-max-line-length = 119
-max-complexity = 18
-ignore = "W293, W504, E111, E114, E402, E501,"
-exclude = [".venv"]
+[tool.ruff.format]
+quote-style = "single"
+indent-style = "space"
+line-ending = "auto"
+docstring-code-line-length = "dynamic"
+docstring-code-format = true
+skip-magic-trailing-comma = false
 
-[tool.autopep8]
-max-line-length = 119
-indent-size = 4
-ignore = "E111, E114, E402, E501,"
-aggressive = 3
-exclude = ".venv"
+[tool.ruff.lint]
+select = [
+    # pycodestyle
+    "E",
+    # Pyflakes
+    "F",
+    # pyupgrade
+    "UP",
+    # flake8-bugbear
+    "B",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I",
+]
+ignore = ["F401", "W293", "E111", "E114", "E402", "E501"]
+
+[tool.ruff.lint.flake8-annotations]
+# Whether to suppress ANN401 for dynamically typed *args and **kwargs arguments.
+allow-star-arg-any = true
+
+[tool.ruff.lint.flake8-implicit-str-concat]
+# Whether to allow implicit string concatenations for multiline strings. By default, implicit concatenations of multiline strings are allowed (but continuation lines, delimited with a backslash, are prohibited).
+allow-multiline = false
+
+[tool.ruff.lint.isort]
+case-sensitive = true
+combine-as-imports = true
 
 [tool.mypy]
-python_version = "3.8"
-no_strict_optional = true
+python_version = "3.9"
 ignore_missing_imports = true
 check_untyped_defs = true
 exclude = ["/.venv/"]
 
 [tool.pytest.ini_options]
-testpaths = ["tests",]
-filterwarnings = ["ignore::DeprecationWarning",]
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning"]
 addopts = ["--ignore=.venv"]

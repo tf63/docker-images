@@ -1,15 +1,19 @@
 FROM nvidia/cuda:11.1.1-cudnn8-runtime-ubuntu20.04 AS base
 
 # 非インタラクティブモードにする (入力待ちでブロックしなくなる)
-ENV DEBIAN_FRONTEND=noninteractive
+ARG DEBIAN_FRONTEND=noninteractive
+
 # .pycを作らないように
 ENV PYTHONDONTWRITEBYTECODE 1
 # バッファの無効化
 ENV PYTHONUNBUFFERED 1
-# rootのpython環境へのパス
-ENV PYTHONPATH /usr/local/lib/python3.8/dist-packages
 # torchvisionでpretrainedのモデルを保存する場所
 ENV TORCH_HOME /app/.cache
+
+ENV POETRY_VERSION=1.8.2
+ENV POETRY_NO_INTERACTION=1
+ENV POETRY_VIRTUALENVS_CREATE=true
+ENV POETRY_VIRTUALENVS_IN_PROJECT=true
 
 WORKDIR /app
 
@@ -27,7 +31,8 @@ RUN --mount=type=cache,target=/var/lib/apt,sharing=locked \
     libsndfile1-dev \
     libgl1 \
     python3.8 \
-    python3-pip
+    python3-pip \
+    python-is-python3
 
 # ----------------------------------------------------------------
 # create user
@@ -49,25 +54,21 @@ RUN if ! getent group $USER_GID >/dev/null; then \
 RUN useradd -m -u $USER_UID -g $USER_GID -s /bin/bash $USER_NAME
 RUN chown ${USER_UID}:${USER_GID} /app
 
+
+# ユーザー周りのセットアップ
+RUN chown $USER_UID:$USER_GID /app
+
 # 初期ユーザーの変更
 USER $USER_NAME
 ENV PATH /home/$USER_NAME/.local/bin:$PATH
 
-# ----------------------------------------------------------------
-# requiremtentsはtorchよりも更新されうるのでここでは入れない
-RUN pip3 install --no-cache-dir -U pip setuptools wheel
+# poetryのインストール
+RUN curl -sSL https://install.python-poetry.org | python3 -
 
+# ----------------------------------------------------------------
+# torch-1.9.0 環境
 # ----------------------------------------------------------------
 FROM base AS torch-1.9.0
 
-ENV POETRY_VERSION=1.8.2
-ENV POETRY_NO_INTERACTION=1
-ENV POETRY_VIRTUALENVS_CREATE=true
-# torchが大きすぎるのでin-projectで.venvを作りたい
-ENV POETRY_VIRTUALENVS_IN_PROJECT=true
-
-RUN pip install --no-cache-dir poetry==$POETRY_VERSION
-
-# in-projectなのでコンテナ起動後に実行する
-# COPY pyproject.toml poetry.lock ./
-# RUN poetry install
+COPY --chown=$USER_NAME:$GROUP_NAME pyproject.toml poetry.lock ./
+RUN poetry install
