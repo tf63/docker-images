@@ -50,6 +50,6 @@ RUN curl -sSf https://rye.astral.sh/get | RYE_VERSION=$RYE_VERSION RYE_INSTALL_O
     rye config --set-bool behavior.use-uv=true
 
 # python環境構築
-COPY --chown=$USER_NAME:$USER_NAME .python-version pyproject.toml requirements.lock requirements-dev.lock ./
+COPY --chown=$USER_NAME:$GROUP_NAME .python-version pyproject.toml requirements.lock requirements-dev.lock ./
 
 RUN rye pin "$(cat .python-version)" && rye sync
