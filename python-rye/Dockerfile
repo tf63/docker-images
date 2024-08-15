@@ -3,8 +3,8 @@ FROM debian:bullseye-slim as base
 WORKDIR /app
 
 # UIDとGIDは外から与える
-ARG USER_UID
-ARG USER_GID
+ARG USER_UID=10001
+ARG USER_GID=10001
 
 # コンテナ内でのユーザー名， グループ名
 ARG USER_NAME=user
@@ -31,25 +31,35 @@ RUN chown $USER_UID:$USER_GID /app && \
     mkdir $RYE_HOME && \
     chown $USER_UID:$USER_GID $RYE_HOME
 
-# ----------------------------------------------------------------
-# develepment environement
-# ----------------------------------------------------------------
-FROM base as dev
-
 RUN --mount=type=cache,target=/var/lib/apt,sharing=locked \
     --mount=type=cache,target=/var/cache/apt,sharing=locked \
     apt-get update && \
-    apt-get install -y curl
+    apt-get install -y --no-install-recommends curl ca-certificates
 
 # 初期ユーザーの変更
 USER $USER_NAME
 
 # ryeのインストール
-RUN curl -sSf https://rye.astral.sh/get | RYE_VERSION=$RYE_VERSION RYE_INSTALL_OPTION="--yes" RYE_TOOLCHAIN_VERSION=$PYTHON_VERSION bash && \
+RUN curl -sSf https://rye.astral.sh/get | RYE_VERSION=$RYE_VERSION RYE_INSTALL_OPTION="--yes" RYE_NO_AUTO_INSTALL=1 RYE_TOOLCHAIN_VERSION=$PYTHON_VERSION bash && \
     rye config --set-bool behavior.global-python=true && \
     rye config --set-bool behavior.use-uv=true
 
 # python環境構築
 COPY --chown=$USER_NAME:$GROUP_NAME .python-version pyproject.toml requirements.lock requirements-dev.lock ./
 
-RUN rye pin "$(cat .python-version)" && rye sync
+# キャッシュを作っておく
+RUN rye pin "$(cat .python-version)" && rye sync --no-lock --no-dev
+
+# ----------------------------------------------------------------
+# develepment environement
+# ----------------------------------------------------------------
+FROM base as development
+
+RUN rye sync --no-lock
+
+# ----------------------------------------------------------------
+# production environement
+# ----------------------------------------------------------------
+FROM base as production
+
+RUN rye sync --no-lock --no-dev
