@@ -3,7 +3,8 @@
     "editor.tabSize": 4,
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
-        "source.addMissingImports": "explicit"
+        "source.addMissingImports": "explicit",
+        "source.organizeImports.ruff": "explicit"
     },
     "[python]": {
         "editor.defaultFormatter": "charliermarsh.ruff",
