@@ -1,3 +1,9 @@
+# python
+**/.venv/**/*
+**/wandb/**/*
+**/run/**/*
+**/*cache*/**/*
+
 # lock
 **/package-lock.json
 **/yarn.lock

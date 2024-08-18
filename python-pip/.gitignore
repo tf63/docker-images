@@ -76,3 +76,13 @@ dmypy.json
 out/
 data/
 migrations/
+
+# Machine Learning
+wandb/
+lightning_logs/
+ckpts/
+
+# logs
+run/
+logs/
+nohup.out

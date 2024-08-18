@@ -54,7 +54,7 @@ cover/
 .ipynb_checkpoints
 
 # ruff
-.ruff_cache
+.ruff_cache/
 
 # mypy
 .mypy_cache/
@@ -76,3 +76,13 @@ dmypy.json
 out/
 data/
 migrations/
+
+# Machine Learning
+wandb/
+lightning_logs/
+ckpts/
+
+# logs
+run/
+logs/
+nohup.out
