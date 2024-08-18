@@ -1,5 +1,20 @@
 FROM debian:bullseye-slim as base
 
+# 非インタラクティブモードにする (入力待ちでブロックしなくなる)
+ARG DEBIAN_FRONTEND=noninteractive
+
+# .pycを作らないように
+ENV PYTHONDONTWRITEBYTECODE=1
+# バッファの無効化
+ENV PYTHONUNBUFFERED=1
+# pythonのバージョン
+ENV PYTHON_VERSION=3.9.19
+
+ENV RYE_VERSION=0.38.0
+ENV RYE_HOME=/opt/rye
+
+ENV PATH=$PATH:$RYE_HOME/shims
+
 WORKDIR /app
 
 # UIDとGIDは外から与える
@@ -9,15 +24,6 @@ ARG USER_GID=10001
 # コンテナ内でのユーザー名， グループ名
 ARG USER_NAME=user
 ARG GROUP_NAME=user
-
-ARG DEBIAN_FRONTEND=noninteractive
-ENV PYTHON_VERSION=3.9.19
-ENV PYTHONUNBUFFERED=1
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV RYE_VERSION=0.38.0
-ENV RYE_HOME=/opt/rye
-
-ENV PATH=$PATH:$RYE_HOME/shims
 
 # グループが存在しなかったら，適当なグループを作成
 RUN if ! getent group $USER_GID >/dev/null; then \

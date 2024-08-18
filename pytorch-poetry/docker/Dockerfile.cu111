@@ -52,8 +52,6 @@ RUN if ! getent group $USER_GID >/dev/null; then \
 
 # ユーザーを作成
 RUN useradd -m -u $USER_UID -g $USER_GID -s /bin/bash $USER_NAME
-RUN chown ${USER_UID}:${USER_GID} /app
-
 
 # ユーザー周りのセットアップ
 RUN chown $USER_UID:$USER_GID /app

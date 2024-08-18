@@ -3,6 +3,7 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
+            target: development
             args:
                 - USER_UID=1000
                 - USER_GID=1000
