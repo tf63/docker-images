@@ -14,7 +14,7 @@ services:
         volumes:
             - ./:/app
             - venv:/app/.venv
-        command: ['rye', 'run', 'uvicorn', 'src.main:app', '--host', '0.0.0.0', '--port', '8080', '--reload']
+        command: ['rye', 'run', 'dev']
 
 volumes:
     venv:

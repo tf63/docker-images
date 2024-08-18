@@ -15,8 +15,7 @@ services:
         volumes:
             - ./:/app
             - venv:/app/.venv
-        command:
-            ['rye', 'run', 'jupyter', 'notebook', '--ip', '0.0.0.0', '--port', '8888', '--NotebookApp.token', 'token']
+        command: ['rye', 'run', 'dev']
 
 volumes:
     venv:

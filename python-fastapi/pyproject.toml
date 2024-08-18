@@ -2,10 +2,7 @@
 name = "src"
 version = "0.1.0"
 description = "Add your description here"
-dependencies = [
-    "fastapi>=0.112.1",
-    "uvicorn[standard]>=0.30.6",
-]
+dependencies = ["fastapi>=0.112.1", "uvicorn[standard]>=0.30.6"]
 readme = "README.md"
 requires-python = ">= 3.8"
 
@@ -27,6 +24,7 @@ dev-dependencies = ["pytest>=8.3.2", "mypy>=1.11.1", "ruff>=0.5.7"]
 lint = { chain = ["lint:ruff", "lint:mypy"] }
 format = { chain = ["format:ruff", "lint:ruff:fix"] }
 test = "pytest"
+dev = "uvicorn src.main:app --host 0.0.0.0 --port 8080 --reload"
 
 [tool.hatch.metadata]
 allow-direct-references = true
