@@ -6,7 +6,8 @@
         "source.addMissingImports": "explicit",
         "source.organizeImports.ruff": "explicit"
     },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "[python]": {
-        "editor.defaultFormatter": "charliermarsh.ruff",
-    },
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    }
 }
