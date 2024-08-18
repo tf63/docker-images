@@ -4,8 +4,8 @@ services:
             context: .
             dockerfile: Dockerfile
             args:
-                - USER_UID=10001
-                - USER_GID=10001
+                - USER_UID=1000
+                - USER_GID=1000
         container_name: 'python'
         stdin_open: true
         tty: true
