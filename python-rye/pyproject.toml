@@ -1,5 +1,5 @@
 [project]
-name = "app"
+name = "src"
 version = "0.1.0"
 description = "Add your description here"
 dependencies = []
