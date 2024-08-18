@@ -7,8 +7,6 @@ ARG DEBIAN_FRONTEND=noninteractive
 ENV PYTHONDONTWRITEBYTECODE=1
 # バッファの無効化
 ENV PYTHONUNBUFFERED=1
-# pythonのバージョン
-ENV PYTHON_VERSION=3.9.19
 
 ENV RYE_VERSION=0.38.0
 ENV RYE_HOME=/opt/rye
@@ -46,7 +44,7 @@ RUN --mount=type=cache,target=/var/lib/apt,sharing=locked \
 USER $USER_NAME
 
 # ryeのインストール
-RUN curl -sSf https://rye.astral.sh/get | RYE_VERSION=$RYE_VERSION RYE_INSTALL_OPTION="--yes" RYE_NO_AUTO_INSTALL=1 RYE_TOOLCHAIN_VERSION=$PYTHON_VERSION bash && \
+RUN curl -sSf https://rye.astral.sh/get | RYE_VERSION=$RYE_VERSION RYE_INSTALL_OPTION="--yes" bash && \
     rye config --set-bool behavior.global-python=true && \
     rye config --set-bool behavior.use-uv=true
 

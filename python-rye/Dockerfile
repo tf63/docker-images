@@ -1,4 +1,4 @@
-FROM debian:bullseye-slim as base
+FROM debian:bullseye-slim AS base
 
 # 非インタラクティブモードにする (入力待ちでブロックしなくなる)
 ARG DEBIAN_FRONTEND=noninteractive
@@ -7,8 +7,6 @@ ARG DEBIAN_FRONTEND=noninteractive
 ENV PYTHONDONTWRITEBYTECODE=1
 # バッファの無効化
 ENV PYTHONUNBUFFERED=1
-# pythonのバージョン
-ENV PYTHON_VERSION=3.9.19
 
 ENV RYE_VERSION=0.38.0
 ENV RYE_HOME=/opt/rye
@@ -46,9 +44,9 @@ RUN --mount=type=cache,target=/var/lib/apt,sharing=locked \
 USER $USER_NAME
 
 # ryeのインストール
-RUN curl -sSf https://rye.astral.sh/get | RYE_VERSION=$RYE_VERSION RYE_INSTALL_OPTION="--yes" RYE_NO_AUTO_INSTALL=1 RYE_TOOLCHAIN_VERSION=$PYTHON_VERSION bash && \
+RUN curl -sSf https://rye.astral.sh/get | RYE_VERSION=$RYE_VERSION RYE_INSTALL_OPTION="--yes" bash && \
     rye config --set-bool behavior.global-python=true && \
-    rye config --set-bool behavior.use-uv=true
+    rye config --set-bool behavior.use-uv=tru
 
 # python環境構築
 COPY --chown=$USER_NAME:$GROUP_NAME .python-version pyproject.toml requirements.lock requirements-dev.lock ./
@@ -59,13 +57,13 @@ RUN rye pin "$(cat .python-version)" && rye sync --no-lock --no-dev
 # ----------------------------------------------------------------
 # develepment environement
 # ----------------------------------------------------------------
-FROM base as development
+FROM base AS development
 
 RUN rye sync --no-lock
 
 # ----------------------------------------------------------------
 # production environement
 # ----------------------------------------------------------------
-FROM base as production
+FROM base AS production
 
 RUN rye sync --no-lock --no-dev
