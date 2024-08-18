@@ -3,8 +3,8 @@ FROM python:3.8.19-slim AS base
 WORKDIR /app
 
 # UIDとGIDは外から与える
-ARG USER_UID
-ARG USER_GID
+ARG USER_UID=10001
+ARG USER_GID=10001
 
 # コンテナ内でのユーザー名， グループ名
 ARG USER_NAME=user
