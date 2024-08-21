@@ -65,6 +65,5 @@ FROM base AS torch-1.9.0
 RUN pip3 install --no-cache-dir torch==1.9.0+cu111 torchvision==0.10.0+cu111 -f https://download.pytorch.org/whl/torch_stable.html
 
 # requirements.txtはtorchよりも更新されうるので最後に入れる
-COPY requirements.txt /app
 RUN --mount=type=bind,source=requirements.txt,target=requirements.txt \
     pip3 install --no-cache-dir -r requirements.txt
