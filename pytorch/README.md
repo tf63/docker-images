@@ -1,6 +1,6 @@
 # PyTorch環境
 
-ビルドは`docker.sh`参照
-```
-    bash docker.sh [build|shell|root|help]
+ビルド方法は`docker.sh`参照
+```shell
+    bash docker.sh [build|build:no-cache|shell|shell:root|exec|help]
 ```

@@ -1,13 +1,12 @@
 FROM nvidia/cuda:11.1.1-cudnn8-runtime-ubuntu20.04 AS base
 
 # 非インタラクティブモードにする (入力待ちでブロックしなくなる)
-ENV DEBIAN_FRONTEND=noninteractive
+ARG DEBIAN_FRONTEND=noninteractive
+
 # .pycを作らないように
 ENV PYTHONDONTWRITEBYTECODE 1
 # バッファの無効化
 ENV PYTHONUNBUFFERED 1
-# rootのpython環境へのパス
-ENV PYTHONPATH /usr/local/lib/python3.8/dist-packages
 # torchvisionでpretrainedのモデルを保存する場所
 ENV TORCH_HOME /app/.cache
 
@@ -27,7 +26,8 @@ RUN --mount=type=cache,target=/var/lib/apt,sharing=locked \
     libsndfile1-dev \
     libgl1 \
     python3.8 \
-    python3-pip
+    python3-pip \
+    python-is-python3
 
 # ----------------------------------------------------------------
 # create user
@@ -48,18 +48,23 @@ RUN if ! getent group $USER_GID >/dev/null; then \
 # ユーザーを作成
 RUN useradd -m -u $USER_UID -g $USER_GID -s /bin/bash $USER_NAME
 
+# ユーザー周りのセットアップ
+RUN chown $USER_UID:$USER_GID /app
+
 # 初期ユーザーの変更
 USER $USER_NAME
 ENV PATH /home/$USER_NAME/.local/bin:$PATH
 
-# ----------------------------------------------------------------
-# requiremtentsはtorchよりも更新されうるのでここでは入れない
 RUN pip3 install --no-cache-dir -U pip setuptools wheel
 
+# ----------------------------------------------------------------
+# torch-1.9.0 環境
 # ----------------------------------------------------------------
 FROM base AS torch-1.9.0
 
 RUN pip3 install --no-cache-dir torch==1.9.0+cu111 torchvision==0.10.0+cu111 -f https://download.pytorch.org/whl/torch_stable.html
 
+# requirements.txtはtorchよりも更新されうるので最後に入れる
 COPY requirements.txt /app
-RUN pip3 install --no-cache-dir -r requirements.txt
+RUN --mount=type=bind,source=requirements.txt,target=requirements.txt \
+    pip3 install --no-cache-dir -r requirements.txt

@@ -1,0 +1,74 @@
+[project]
+name = "src"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[tool.ruff]
+line-length = 119
+indent-width = 4
+# include files: ["*.py", "*.pyi", "**/pyproject.toml] https://docs.astral.sh/ruff/settings/#include
+# exclude files: [".venv", "dist", ...] https://docs.astral.sh/ruff/settings/#exclude
+
+[tool.ruff.format]
+quote-style = "single"
+indent-style = "space"
+line-ending = "auto"
+docstring-code-line-length = "dynamic"
+docstring-code-format = true
+skip-magic-trailing-comma = false
+
+[tool.ruff.lint]
+select = [
+    # pycodestyle
+    "E",
+    # Pyflakes
+    "F",
+    # pyupgrade
+    "UP",
+    # flake8-bugbear
+    "B",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I",
+]
+
+# https://docs.astral.sh/ruff/rules/
+ignore = [
+    "F401",
+    "W293",
+    "E111",
+    "E114",
+    "E402",
+    "E501",
+    # https://docs.astral.sh/ruff/rules/#flake8-simplify-sim
+    # Use ternary operator {contents} instead of if-else-block
+    "SIM108",
+    # Use `key in dict` instead of `key in dict.keys()`
+    "SIM118",
+]
+
+[tool.ruff.lint.flake8-annotations]
+# Whether to suppress ANN401 for dynamically typed *args and **kwargs arguments.
+allow-star-arg-any = true
+
+[tool.ruff.lint.flake8-implicit-str-concat]
+# Whether to allow implicit string concatenations for multiline strings. By default, implicit concatenations of multiline strings are allowed (but continuation lines, delimited with a backslash, are prohibited).
+allow-multiline = false
+
+[tool.ruff.lint.isort]
+case-sensitive = true
+combine-as-imports = true
+
+[tool.mypy]
+python_version = "3.8"
+ignore_missing_imports = true
+check_untyped_defs = true
+exclude = ["/.venv/"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning"]
+addopts = ["--ignore=.venv"]

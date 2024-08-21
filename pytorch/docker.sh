@@ -10,7 +10,7 @@
 DATASET_DIRS="$HOME/dataset"
 DATA_DIRS="$HOME/data"
 
-EXP_NAME="poetry"
+EXP_NAME="pip"
 DOCKERFILE_NAME="Dockerfile.cu111"
 TORCH_VERSION="torch-1.9.0"
 # cu111 - torch-1.9.0
@@ -18,7 +18,6 @@ TORCH_VERSION="torch-1.9.0"
 
 build()
 {
-    docker volume inspect $VOLUME_NAME > /dev/null 2>&1 || docker volume create $VOLUME_NAME
     DOCKER_BUILDKIT=1 docker build . -f docker/$DOCKERFILE_NAME \
                                     --target $TORCH_VERSION \
                                     --build-arg USER_UID=`(id -u)` \
@@ -76,7 +75,7 @@ exec()
 
 help()
 {
-    echo "usage: bash docker.sh [build|build:no-cache|shell|shell:root|volume|exec|help]"
+    echo "usage: bash docker.sh [build|build:no-cache|shell|shell:root|exec|help]"
 }
 
 if [[ $1 == "build" ]]; then
@@ -87,8 +86,6 @@ elif [[ $1 == "shell" ]]; then
     shell
 elif [[ $1 == "shell:root" ]]; then
     shell:root
-elif [[ $1 == "volume" ]]; then
-    volume
 elif [[ $1 == "exec" ]]; then
     exec "$2"
 elif [[ $1 == "help" ]]; then
