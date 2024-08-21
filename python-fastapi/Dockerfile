@@ -1,4 +1,4 @@
-FROM debian:bullseye-slim AS base
+FROM debian:bookworm-slim AS base
 
 # 非インタラクティブモードにする (入力待ちでブロックしなくなる)
 ARG DEBIAN_FRONTEND=noninteractive
@@ -44,7 +44,7 @@ RUN --mount=type=cache,target=/var/lib/apt,sharing=locked \
 USER $USER_NAME
 
 # ryeのインストール
-RUN curl -sSf https://rye.astral.sh/get | RYE_VERSION=$RYE_VERSION RYE_INSTALL_OPTION="--yes" bash && \
+RUN curl -sSf https://rye.astral.sh/get | RYE_VERSION=$RYE_VERSION RYE_INSTALL_OPTION="--yes" RYE_TOOLCHAIN_VERSION=3.9.19 bash && \
     rye config --set-bool behavior.global-python=true && \
     rye config --set-bool behavior.use-uv=true
 
