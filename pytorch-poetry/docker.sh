@@ -30,8 +30,7 @@ build()
 
 build:no-cache()
 {
-    volume
-    DOCKER_BUILDKIT=1 docker build . -f docker/$DOCKERFILE_NAME \
+    volume && DOCKER_BUILDKIT=1 docker build . -f docker/$DOCKERFILE_NAME \
                                     --no-cache \
                                     --target $TORCH_VERSION \
                                     --build-arg USER_UID=`(id -u)` \
@@ -72,9 +71,22 @@ volume()
     echo "create volume" && docker volume create $VOLUME_NAME
 }
 
+exec()
+{
+  docker run --name $EXP_NAME-$(date +%Y%m%d-%H%M%S) \
+                --rm -i \
+                --gpus all \
+                --shm-size=32g \
+                -v $(pwd):/app \
+                -v $DATASET_DIRS:/dataset \
+                -v $DATA_DIRS:/data \
+                -v $VOLUME_NAME:/app/.venv \
+                $TORCH_VERSION:$EXP_NAME "/bin/bash" "-c" "$1"
+}
+
 help()
 {
-    echo "usage: bash docker.sh [build|build:no-cache|shell|shell:root|volume|help]"
+    echo "usage: bash docker.sh [build|build:no-cache|shell|shell:root|volume|exec|help]"
 }
 
 if [[ $1 == "build" ]]; then
@@ -87,6 +99,8 @@ elif [[ $1 == "shell:root" ]]; then
     shell:root
 elif [[ $1 == "volume" ]]; then
     volume
+elif [[ $1 == "exec" ]]; then
+    exec "$2"
 elif [[ $1 == "help" ]]; then
     help
 else
