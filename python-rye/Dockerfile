@@ -46,7 +46,7 @@ USER $USER_NAME
 # ryeのインストール
 RUN curl -sSf https://rye.astral.sh/get | RYE_VERSION=$RYE_VERSION RYE_INSTALL_OPTION="--yes" bash && \
     rye config --set-bool behavior.global-python=true && \
-    rye config --set-bool behavior.use-uv=tru
+    rye config --set-bool behavior.use-uv=true
 
 # python環境構築
 COPY --chown=$USER_NAME:$GROUP_NAME .python-version pyproject.toml requirements.lock requirements-dev.lock ./
