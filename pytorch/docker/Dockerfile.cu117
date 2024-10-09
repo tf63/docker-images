@@ -69,7 +69,7 @@ RUN --mount=type=bind,source=requirements.txt,target=requirements.txt \
     pip3 install --no-cache-dir -r requirements.txt
 
 # ----------------------------------------------------------------
-# torch-1.13.0 環境
+# torch-2.0.0 環境
 # ----------------------------------------------------------------
 FROM base AS torch-2.0.0
 
